@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&display=swap&subset=cyrillic');
+
+
+
+
+
+
+
+
+/* -----------------------------------------------------
+--------------------------Global------------------------
+----------------------------------------------------- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+}
+
+a,
+button,
+input,
+textarea {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+body {
+  color: #232323;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+}
+
+body * {
+  background-attachment: scroll;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding:0 25px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width:768px) {
+  .container {
+      max-width: 1180px;
+      padding: 0 15px;
+  }
+}
+
+.flex-wrap {
+  display: flex;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------------------
+----------------------Site Navigation-------------------
+----------------------------------------------------- */
+.allPages {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #5d5c61;
+}
+
+.allPages-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+.allPages-title {
+  font-size: 40px;
+  margin-bottom: 45px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  color: #8ee4af;
+}
+
+.allPages-title:after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 65px;
+  height: 7.5px;
+  background: #8ee4af;
+}
+
+.allPages li {
+  margin-bottom: 15px;
+  display: block;
+  text-align: flex-start;
+}
+
+.allPages li:before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8ee4af;
+  margin-right: 10px;
+  margin-bottom: 4px;
+}
+
+.allPages li a {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  color: white;
+  transition: .3s;
+}
+
+.allPages li a:hover {
+  color: #8ee4af;
+}
+
+
+
+
+
+
+
+/* -----------------------------------------------------
+------------------------Template------------------------
+----------------------------------------------------- */
+.btn {
+  background: #50d981;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+  max-width: 100%;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.btn.big {
+  padding: 23px 10px;
+}
+
+.btn:hover {
+  box-shadow: 0 7px 10px rgba(0, 0, 0, .3);
+  transform: translateY(-3px);
+}
+
+.simple-input {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+input,
+textarea {
+  border: 1px solid transparent;
+  background-color: none;
+  width: 100%;
+  padding: 13px 25px;
+  background: #F3F2F1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #C6C1BA;
+  font-family: 'Proxima Nova';
+}
+
+textarea {
+  resize: none;
+  height: 82px;
+}
+
+textarea:focus,
+input:focus {
+  border-color: none;
+}
+
+textarea::placeholder,
+input::placeholder {
+  opacity: .7;
+  transition: .3s;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------------------
+--------------------------Start-------------------------
+----------------------------------------------------- */
+
+
+
+.header-section{
+  background: #eee;
+  padding: 15px 0;
+}
+
+.header-section .flex-wrap{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-nav{
+  display: flex;
+}
+
+.header-nav li + li a{
+  margin-left: 15px;
+}
+
+.header-logo{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+
+
+.content-section{
+  padding: 25px 0;
+}
+
+/* -----------------------------------------------------
+--------------------------End-------------------------
+----------------------------------------------------- */
