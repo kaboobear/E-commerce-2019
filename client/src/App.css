@@ -315,6 +315,31 @@ textarea:focus::placeholder {
   padding: 25px 0;
 }
 
+
+
+
+.add-section{
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+
+
+
+.item{
+  padding: 15px;
+  border:3px solid #bbb;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.item:hover{
+  opacity: .5;
+}
+
 /* -----------------------------------------------------
 --------------------------End-------------------------
 ----------------------------------------------------- */
