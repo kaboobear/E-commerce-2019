@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Header from './components/header'
 import Main from './components/main'
-import Add from './components/addItem'
 import Second from './components/second'
+import Edit from './components/editItem'
 import './App.css';
 
 import store from './store';
@@ -20,8 +20,8 @@ function App() {
 
                     <div className="content-section">
                         <div className="container">
-                            <Add/>
                             <Route path='/' exact component={Main}/>
+                            <Route path='/edit/:id' exact render={({match})=>(<Edit id={match.params.id} />)}/>
                             <Route path='/second' exact component={Second}/>
                         </div>
                     </div>

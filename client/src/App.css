@@ -42,7 +42,7 @@ textarea {
 
 body {
   color: #232323;
-  font-family: 'Montserrat';
+  font-family: Montserrat;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -181,7 +181,7 @@ input[type=number] {
   font-weight: 400;
   line-height: 22px;
   color: white;
-  transition: .3s;
+  transition: .2s;
 }
 
 .allPages li a:hover {
@@ -198,20 +198,26 @@ input[type=number] {
 ------------------------Template------------------------
 ----------------------------------------------------- */
 .btn {
-  background: #50d981;
+  background: #5cdb95;
+  border: 2px solid transparent;
   border-radius: 5px;
   padding: 10px 20px;
   text-align: center;
   cursor: pointer;
-  transition: .3s;
+  transition: .2s;
   max-width: 100%;
   width: 100%;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.03em;
   color: #FFFFFF;
   text-align: center;
+}
+
+.btn.simple{
+  background: none;
+  border: 2px solid white;
 }
 
 .btn.big {
@@ -219,31 +225,37 @@ input[type=number] {
 }
 
 .btn:hover {
-  box-shadow: 0 7px 10px rgba(0, 0, 0, .3);
-  transform: translateY(-3px);
+  /* box-shadow: 0 7px 10px rgba(0, 0, 0, .3);
+  transform: translateY(-3px); */
+  background:#60cc90;
+}
+
+.btn.simple:hover{
+  background: rgba(255,255,255,.1);
 }
 
 .simple-input {
   width: 100%;
   max-width: 100%;
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 input,
 textarea {
-  border: 1px solid transparent;
+  border: 1px solid #ccc;
   background-color: none;
   width: 100%;
-  padding: 13px 25px;
-  background: #F3F2F1;
+  padding: 15px 12px;
+  background: none;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 16px;
   letter-spacing: -0.01em;
   color: #C6C1BA;
-  font-family: 'Proxima Nova';
+  font-family: Montserrat;
+  border-radius: 5px;
 }
 
 textarea {
@@ -259,7 +271,7 @@ input:focus {
 textarea::placeholder,
 input::placeholder {
   opacity: .7;
-  transition: .3s;
+  transition: .2s;
 }
 
 input:focus::placeholder,
@@ -286,7 +298,7 @@ textarea:focus::placeholder {
 
 
 .header-section{
-  background: #eee;
+  background: #24292e;;
   padding: 15px 0;
 }
 
@@ -306,6 +318,7 @@ textarea:focus::placeholder {
 .header-logo{
   font-size: 22px;
   font-weight: 600;
+  color:#fff;
 }
 
 
@@ -323,21 +336,60 @@ textarea:focus::placeholder {
   max-width: 300px;
 }
 
+.add-section .btn{
+  padding: 14px 25px;
+  padding: 14px 25px;
+  font-size: 18px;
+}
+
 
 
 
 .item{
-  padding: 15px;
-  border:3px solid #bbb;
+  padding: 8px;
+  padding-left: 12px;
+  border:1px solid #ccc;
   border-radius: 5px;
   font-size: 18px;
   margin-bottom: 10px;
-  cursor: pointer;
-  transition: .3s;
+  transition: .2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .item:hover{
-  opacity: .5;
+  border-color:#aaa;
+}
+
+.btns{
+  display: flex;
+}
+
+.btns > *{
+  margin-left: 8px;
+}
+
+.delete-btn{
+  background: #cc6e6e;
+  transition: .2s;
+}
+
+.delete-btn:hover{
+  background: #c75656;
+}
+
+.item-name{
+  transition: .2s;
+}
+
+.item:hover .item-name{
+  padding-left: 10px;
+}
+
+.loader{
+  text-align: center;
+  padding-top: 40px;
 }
 
 /* -----------------------------------------------------

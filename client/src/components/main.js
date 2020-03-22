@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getItems, deleteItem} from '../actions/itemActions'
+import{NavLink} from 'react-router-dom';
+import Add from './addItem'
 
 class Main extends Component {
 
@@ -19,23 +21,32 @@ class Main extends Component {
     render() {
         return (
             <div className="main-section">
-                {/* <h3>Hello World</h3> */}
+                <Add/>
 
                 {(this.props.item.isLoading === false)
-                    ? this
-                        .props
-                        .item
-                        .items
-                        .map(elem => (
-                            <div
-                                className="item"
-                                key={elem._id}
-                                onClick={() => {
-                                this.onDeleteClick(elem._id)
-                            }}>{elem.name}</div>
-                        ))
+                    ? this.props.item.items.map(elem => (
+                        <div className="item" key={elem._id}>
+                            <div className="item-name">
+                            {elem.name}
+                            </div>
+
+                            <div className="btns">
+                                <NavLink to={`/edit/${elem._id}`} className="edit-btn btn">
+                                    Edit
+                                </NavLink>
+                                
+                                <div
+                                    className="delete-btn btn"
+                                    onClick={() => {
+                                    this.onDeleteClick(elem._id)
+                                }}>
+                                    Delete
+                                </div>
+                            </div>
+                        </div>
+                    ))
                     : (
-                        <h3>Loading...</h3>
+                        <h3 className="loader">Loading...</h3>
                     )
 }
 

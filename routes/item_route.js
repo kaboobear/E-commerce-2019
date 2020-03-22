@@ -10,12 +10,28 @@ router.get("/",(req,res)=>{
         .then(items=>res.json(items))
 })
 
+router.get("/:id",(req,res)=>{
+    Item
+        .findById(req.params.id)
+        .then(item=>res.json(item))
+})
+
 router.post("/",(req,res)=>{
     const newItem = new Item({
         name:req.body.name
     })
 
     newItem.save().then(item => res.json(item))
+})
+
+router.post("/:id",(req,res)=>{
+    Item.findById(req.params.id)
+        .then(item=>{
+            item.name = req.body.name;
+
+            item.save()
+                .then(()=>res.json(item));
+        })
 })
 
 router.delete("/:id",(req,res)=>{

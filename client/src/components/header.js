@@ -9,10 +9,10 @@ import{NavLink} from 'react-router-dom';
                     <div className="header-logo">Template</div>
                     <ul className="header-nav">
                         <li>
-                            <NavLink className = "btn" to="/">Home</NavLink>
+                            <NavLink className = "btn simple" to="/">Home</NavLink>
                         </li>
                         <li>
-                            <NavLink className = "btn" to="/second">Second</NavLink>
+                            <NavLink className = "btn simple" to="/second">Second</NavLink>
                         </li>
                     </ul>
                 </div>

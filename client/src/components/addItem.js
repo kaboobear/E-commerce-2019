@@ -2,16 +2,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addItem} from '../actions/itemActions'
 
+
 class Add extends Component {
     state = {
-        title:'',
+        name:'',
     }
 
     onSubmit = (e) => {
         e.preventDefault();
 
         const item = {
-            name:this.state.title
+            name:this.state.name
         }
 
         this.props.addItem(item)
@@ -25,9 +26,9 @@ class Add extends Component {
     render() {
         return (
             <div className="add-section">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} autoComplete="off">
                     <div className="simple-input">
-                        <input type="text" value={this.state.title} name="title" onChange={this.onChange} placeholder="title"/>
+                        <input type="text" value={this.state.name} name="name" onChange={this.onChange} placeholder="Name"/>
                     </div>
 
                     <button className="btn" type="submit">Add</button>

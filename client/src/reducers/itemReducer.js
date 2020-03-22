@@ -1,7 +1,15 @@
-import {GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING} from '../actions/types'
+import {
+    GET_ITEMS,
+    ADD_ITEM,
+    DELETE_ITEM,
+    ITEMS_LOADING,
+    GET_ITEM,
+    EDIT_ITEM
+} from '../actions/types'
 
 const initialState = {
     items: [],
+    item: {},
     isLoading: false
 }
 
@@ -10,8 +18,14 @@ export default function (state = initialState, action) {
         case GET_ITEMS:
             return {
                 ...state,
-                items:action.payload,
-                isLoading:false
+                items: action.payload,
+                isLoading: false
+            }
+        case GET_ITEM:
+            return {
+                ...state,
+                item: action.payload,
+                isLoading: false
             }
         case DELETE_ITEM:
             return {
@@ -27,11 +41,15 @@ export default function (state = initialState, action) {
                     action.payload, ...state.items
                 ]
             }
-
+        case EDIT_ITEM:
+            return {
+                ...state,
+                items: state.items.map(elem=>{if(elem._id === action.payload._id) return action.payload; else return elem})
+            }
         case ITEMS_LOADING:
             return {
                 ...state,
-                isLoading:true
+                isLoading: true
             }
         default:
             return state
