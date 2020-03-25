@@ -234,6 +234,10 @@ input[type=number] {
   background: rgba(255,255,255,.1);
 }
 
+.btn.simple.active:hover{
+  background: none;
+}
+
 .simple-input {
   width: 100%;
   max-width: 100%;
@@ -256,6 +260,16 @@ textarea {
   color: #C6C1BA;
   font-family: Montserrat;
   border-radius: 5px;
+}
+
+input.error{
+  border-color:#e7717d;
+  color:#e7717d !important;
+}
+
+input.error::placeholder{
+  color:#e7717d !important;
+  opacity: 1 !important;
 }
 
 textarea {
@@ -311,8 +325,18 @@ textarea:focus::placeholder {
   display: flex;
 }
 
-.header-nav li + li a{
+.header-nav span{
+  display: flex;
+  align-items: center;
+}
+
+.header-nav li {
   margin-left: 15px;
+}
+
+.header-nav li > *.active{
+  color: #5cdb95;
+  border-color: #5cdb95;
 }
 
 .header-logo{
@@ -321,15 +345,21 @@ textarea:focus::placeholder {
   color:#fff;
 }
 
+.user-title{
+  font-size: 18px;
+  font-weight: 400;
+  color:#fff;
+
+}
+
+
+
 
 
 
 .content-section{
   padding: 25px 0;
 }
-
-
-
 
 .add-section{
   margin-bottom: 20px;
@@ -345,6 +375,8 @@ textarea:focus::placeholder {
 
 
 
+
+
 .item{
   padding: 8px;
   padding-left: 12px;
@@ -356,6 +388,7 @@ textarea:focus::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 58px;
 }
 
 .item:hover{
@@ -391,6 +424,49 @@ textarea:focus::placeholder {
   text-align: center;
   padding-top: 40px;
 }
+
+
+
+
+
+
+.login-section .flex-wrap,
+.register-section .flex-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.add-form {
+  max-width: 400px;
+  width: 100%;
+}
+
+.log-title{
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.add-form .btn{
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.add-form input{
+  padding-right: 50px;
+}
+
+.exclam{
+  position: absolute;
+  right: 15px;
+  top:50%;
+  transform: translateY(-50%);
+  width: 25px;
+  filter: invert(78%) sepia(73%) saturate(3950%) hue-rotate(309deg) brightness(95%) contrast(89%);
+}
+
+
 
 /* -----------------------------------------------------
 --------------------------End-------------------------

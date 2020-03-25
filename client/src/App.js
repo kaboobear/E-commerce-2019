@@ -3,33 +3,48 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Header from './components/header'
 import Main from './components/main'
+import Login from './components/login'
+import Register from './components/register'
 import Second from './components/second'
 import Edit from './components/editItem'
 import './App.css';
 
 import store from './store';
 import {Provider} from 'react-redux';
+import {loadUser} from './actions/authActions'
 
-function App() {
-    return (
-        <Provider store={store }>
-            <Router>
-                <div className="wrapper">
+class App extends React.Component {
 
-                    <Header/>
+    componentDidMount(){
+        store.dispatch(loadUser())
+    }
 
-                    <div className="content-section">
-                        <div className="container">
-                            <Route path='/' exact component={Main}/>
-                            <Route path='/edit/:id' exact render={({match})=>(<Edit id={match.params.id} />)}/>
-                            <Route path='/second' exact component={Second}/>
+    render() {
+        return (
+            <Provider store={store}>
+                <Router>
+                    <div className="wrapper">
+
+                        <Header/>
+
+                        <div className="content-section">
+                            <div className="container">
+                                <Route path='/' exact strict component={Main}/>
+                                <Route path='/login' exact strict component={Login}/>
+                                <Route path='/register' exact strict component={Register}/>
+                                <Route
+                                    path='/edit/:id'
+                                    exact
+                                    render={({match}) => (<Edit id={match.params.id}/>)}/>
+                                <Route path='/second' exact component={Second}/>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </Router>
-        </Provider>
-    );
+                    </div>
+                </Router>
+            </Provider>
+        );
+    }
 }
 
 export default App;

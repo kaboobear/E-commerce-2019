@@ -15,6 +15,8 @@ class Add extends Component {
             name:this.state.name
         }
 
+        this.setState({name:''})
+
         this.props.addItem(item)
     }
 
