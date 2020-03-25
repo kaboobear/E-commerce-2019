@@ -2,7 +2,7 @@
     <img src="https://img.icons8.com/bubbles/100/000000/rocket.png" width="100" height="100">
 </p>
 
-<h1 align="center">MERN + Redux + CRUD</h1>
+<h1 align="center">MERN Authentication</h1>
 
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
@@ -22,6 +22,8 @@
 
 
 <hr>
+
+![Layout](github-img/kaboo.png)
 
 <br>
 
@@ -50,9 +52,9 @@
 
 
 
-[forks-shield]: https://img.shields.io/github/forks/kaboobear/MERN-Redux-CRUD?style=flat-square
-[forks-url]: https://github.com/kaboobear/MERN-Redux-CRUD/network/members
-[issues-shield]: https://img.shields.io/github/issues/kaboobear/MERN-Redux-CRUD.svg?style=flat-square
-[issues-url]: https://github.com/kaboobear/MERN-Redux-CRUD/issues
-[license-shield]: https://img.shields.io/github/license/kaboobear/MERN-Redux-CRUD.svg?style=flat-square
-[license-url]: https://github.com/kaboobear/MERN-Redux-CRUD/blob/master/LICENSE.txt
+[forks-shield]: https://img.shields.io/github/forks/kaboobear/MERN-Authentication?style=flat-square
+[forks-url]: https://github.com/kaboobear/MERN-Authentication/network/members
+[issues-shield]: https://img.shields.io/github/issues/kaboobear/MERN-Authentication.svg?style=flat-square
+[issues-url]: https://github.com/kaboobear/MERN-Authentication/issues
+[license-shield]: https://img.shields.io/github/license/kaboobear/MERN-Authentication.svg?style=flat-square
+[license-url]: https://github.com/kaboobear/MERN-Authentication/blob/master/LICENSE.txt
