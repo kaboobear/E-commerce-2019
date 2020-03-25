@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const fileUpload = require('express-fileupload');
 const path = require("path");
 const cors = require("cors");
 const db = require("./config/keys").mongoURI;
@@ -10,6 +11,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(fileUpload());
 app.use(cors());
 
 mongoose

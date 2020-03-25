@@ -1,10 +1,13 @@
 import {GET_ITEMS,ADD_ITEM,DELETE_ITEM,ITEMS_LOADING,GET_ITEM,EDIT_ITEM} from './types';
-import axios from 'axios'
-import {tokenConfig} from './authActions'
+import {returnErrors} from './errorActions';
+import {tokenConfig} from './authActions';
+import axios from 'axios';
+
 
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios.get('/item').then(res=>dispatch({type:GET_ITEMS,payload:res.data})).catch(err=>{console.log(err)})
+    
 }
 
 export const getItem = (id) => dispatch => {
@@ -17,11 +20,25 @@ export const deleteItem = (id) => (dispatch,getState) => {
 }
 
 export const addItem = (item) => (dispatch,getState) => {
-    axios.post('/item',item,tokenConfig(getState)).then(res => dispatch({type:ADD_ITEM,payload:res.data}))
+    axios.post('/item',item,tokenConfig(getState))
+        .then(res => dispatch({type:ADD_ITEM,payload:res.data}))
+        .catch(err => {
+            dispatch(returnErrors(err.response.data,err.response.status,"ITEM_ERROR"))
+        })
 }
 
-export const editItem = (item,id) => (dispatch,getState) => {
-    axios.post(`/item/${id}`,item,tokenConfig(getState)).then(res => dispatch({type:EDIT_ITEM,payload:res.data}))
+export const editItem = (item,id,history) => (dispatch,getState) => {
+    axios.post(`/item/${id}`,item,tokenConfig(getState))
+        .then(res => {
+            dispatch({type:EDIT_ITEM,payload:res.data})
+        }).then(()=>{
+            setTimeout(()=>{
+                history.push('/');
+            },250)
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data,err.response.status,"ITEM_ERROR"))
+        })
 }
 
 export const setItemsLoading = () => {

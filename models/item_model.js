@@ -2,13 +2,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
-    name:{
+    title:{
         type:String,
         required:true
     },
-    date:{
-        type:Date,
-        default: Date.now
+    description:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    price:{
+        type:Number,
+        required:true
+    },
+    count:{
+        type:Number,
+        required:true
+    },
+    isFreeShipping:{
+        type:Boolean,
+        required:true
+    },
+    imgName:{
+        type:String,
+        required:true
     }
 },{timestamps:true});
 

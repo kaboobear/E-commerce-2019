@@ -257,16 +257,19 @@ textarea {
   font-size: 16px;
   line-height: 16px;
   letter-spacing: -0.01em;
-  color: #C6C1BA;
+  color: #24292e;
   font-family: Montserrat;
   border-radius: 5px;
+  position: relative;
 }
 
+textarea.error,
 input.error{
   border-color:#e7717d;
   color:#e7717d !important;
 }
 
+textarea.error::placeholder,
 input.error::placeholder{
   color:#e7717d !important;
   opacity: 1 !important;
@@ -274,7 +277,7 @@ input.error::placeholder{
 
 textarea {
   resize: none;
-  height: 82px;
+  height: 120px;
 }
 
 textarea:focus,
@@ -312,7 +315,7 @@ textarea:focus::placeholder {
 
 
 .header-section{
-  background: #24292e;;
+  background: #24292e;
   padding: 15px 0;
 }
 
@@ -361,9 +364,16 @@ textarea:focus::placeholder {
   padding: 25px 0;
 }
 
+.add-wrap{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .add-section{
   margin-bottom: 20px;
-  max-width: 300px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .add-section .btn{
@@ -379,28 +389,95 @@ textarea:focus::placeholder {
 
 .item{
   padding: 8px;
-  padding-left: 12px;
   border:1px solid #ccc;
   border-radius: 5px;
   font-size: 18px;
   margin-bottom: 10px;
   transition: .2s;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 58px;
+  align-items: stretch;
 }
 
 .item:hover{
   border-color:#aaa;
 }
 
-.btns{
+.item-titles{
   display: flex;
+  padding: 8px;
 }
 
-.btns > *{
-  margin-left: 8px;
+.item-titles > *{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.item-img,
+.item-description,
+.item-price,
+.item-ship,
+.item-count,
+.item-title{
+  margin-right: 25px;
+}
+
+.item-img{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.item-titles .item-img{
+  height: auto;
+}
+
+.item-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex:1;
+}
+
+.item-title{
+  min-width: 100px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  max-width: 400px;
+}
+
+.item-description{
+  font-size: 14px;
+  max-width: 400px;
+}
+
+.item-count,
+.item-ship,
+.item-price{
+  min-width: 100px;
+  height: min-content;
+  align-self: center;
+  text-align: center;
+}
+
+
+.btns{
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  width: 100px;
+}
+
+.btns .btn{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.btns > *:first-child{
+  margin-bottom: 5px;
 }
 
 .delete-btn{
@@ -411,20 +488,6 @@ textarea:focus::placeholder {
 .delete-btn:hover{
   background: #c75656;
 }
-
-.item-name{
-  transition: .2s;
-}
-
-.item:hover .item-name{
-  padding-left: 10px;
-}
-
-.loader{
-  text-align: center;
-  padding-top: 40px;
-}
-
 
 
 
@@ -465,6 +528,128 @@ textarea:focus::placeholder {
   width: 25px;
   filter: invert(78%) sepia(73%) saturate(3950%) hue-rotate(309deg) brightness(95%) contrast(89%);
 }
+
+.exclam.area{
+  top:22px;
+}
+
+
+
+
+
+
+.toggle-label{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.toggle-label input{
+  display: none;
+}
+
+.toggle-text{
+  margin-left: 15px;
+  font-size: 16px;
+  opacity: .5;
+}
+
+.toggle-box{
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-box-line{
+  width: 70px;
+  height: 35px;
+  border-radius: 60px;
+  background: #ddd;
+  transition: .3s;
+}
+
+.toggle-box-circle{
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 .25em rgba(0, 0, 0, .3);
+  position: absolute;
+  right:5px;
+  top:5px;
+  width: 25px;
+  height: 25px;
+  transition: .3s;
+}
+
+.toggle-label input:checked ~ .toggle-box .toggle-box-circle{
+  right:calc(100% - 25px - 5px);
+}
+
+.toggle-label input:checked ~ .toggle-box .toggle-box-line{
+  background: #5cdb95;
+}
+
+
+
+
+
+
+.file-input{
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.file-label{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-label input{
+  display: none;
+}
+
+.file-btn{
+  background: #5cdb95;
+  color:#fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: .3s;
+  margin-left: 20px;
+}
+
+.file-btn:hover{
+  background: #60cc90;;
+}
+
+.file-img{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+
+
+
+.add-btn{
+  max-width: 150px;
+  margin-bottom: 25px;
+}
+
+.back-btn{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 150px;
+}
+
+
+                                          
+                                          
 
 
 

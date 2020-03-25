@@ -10,7 +10,7 @@ import {
 const initialState = {
     items: [],
     item: {},
-    isLoading: false
+    isLoading: true
 }
 
 export default function (state = initialState, action) {

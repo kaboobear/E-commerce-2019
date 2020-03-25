@@ -6,6 +6,7 @@ import Main from './components/main'
 import Login from './components/login'
 import Register from './components/register'
 import Second from './components/second'
+import Add from './components/addItem'
 import Edit from './components/editItem'
 import './App.css';
 
@@ -15,11 +16,12 @@ import {loadUser} from './actions/authActions'
 
 class App extends React.Component {
 
-    componentDidMount(){
-        store.dispatch(loadUser())
-    }
+    // componentDidMount(){
+    //     store.dispatch(loadUser())
+    // }
 
     render() {
+
         return (
             <Provider store={store}>
                 <Router>
@@ -30,6 +32,7 @@ class App extends React.Component {
                         <div className="content-section">
                             <div className="container">
                                 <Route path='/' exact strict component={Main}/>
+                                <Route path='/add' exact strict component={Add}/>
                                 <Route path='/login' exact strict component={Login}/>
                                 <Route path='/register' exact strict component={Register}/>
                                 <Route
