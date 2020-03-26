@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
         .then(item => res.json(item))
 })
 
-router.post("/", auth, (req, res) => {
+router.post("/", (req, res) => {
     const {errors, isValid} = validateItem(req.body);
     if (!isValid) 
         return res.status(400).json(errors);
@@ -51,7 +51,7 @@ router.post("/", auth, (req, res) => {
 
 })
 
-router.post("/:id", auth, (req, res) => {
+router.post("/:id", (req, res) => {
     const {errors, isValid} = validateItem(req.body);
     if (!isValid) 
         return res.status(400).json(errors);
@@ -88,7 +88,7 @@ router.post("/:id", auth, (req, res) => {
         })
 })
 
-router.delete("/:id", auth, (req, res) => {
+router.delete("/:id", (req, res) => {
     Item
         .findById(req.params.id)
         .then(item => item.remove().then(() => {
