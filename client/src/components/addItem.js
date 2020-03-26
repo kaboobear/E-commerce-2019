@@ -15,6 +15,7 @@ class Add extends Component {
         file: null,
         filename: 'default.png',
         previewImg: null,
+        category: '1',
         msg: {}
     }
 
@@ -27,6 +28,7 @@ class Add extends Component {
         formData.append('price', this.state.price);
         formData.append('count', this.state.count);
         formData.append('isFreeShipping', this.state.isFreeShipping);
+        formData.append('category', this.state.category);
         formData.append('file', this.state.file);
 
         this
@@ -55,6 +57,32 @@ class Add extends Component {
                     : value
             })
         }
+    }
+
+    template = () => {
+        this
+            .props
+            .clearErrors();
+
+        this.setState({
+            title: 'Sticker',
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem" +
+                    " Ipsum has been the industry's standard dummy text ever since the 1500s, when an" +
+                    " unknown printer took a galley of type and scrambled it to make a type specimen " +
+                    "book",
+            price: 1,
+            count: 100,
+            isFreeShipping: true,
+            category:'1',
+        })
+    }
+
+    clear = () => {
+        this
+            .props
+            .clearErrors();
+
+        this.setState({title: '', description: '', price: '', count: '', isFreeShipping: false,category:'1',file: null,filename: 'default.png', previewImg: null,})
     }
 
     componentDidUpdate(prevProps) {
@@ -88,9 +116,19 @@ class Add extends Component {
         return (
             <div className="add-wrap">
 
-                <NavLink strict to="/" className="back-btn btn">
-                    Back
-                </NavLink>
+                <div className="abs-block">
+                    <NavLink strict to="/" className="back-btn btn">
+                        Back
+                    </NavLink>
+
+                    <div className="temp-btn btn" onClick={this.template}>
+                        Default
+                    </div>
+
+                    <div className="clear-btn btn" onClick={this.clear}>
+                        Clear
+                    </div>
+                </div>
 
                 <div className="add-section">
                     <form id="add-form" name="add-form" onSubmit={this.onSubmit} autoComplete="off">
@@ -155,6 +193,91 @@ class Add extends Component {
                                     <img src="img/exclam-ico.png" alt=""/>
                                 </div>
                             )}
+                        </div>
+
+                        <div className="category-title">
+                            Category
+                        </div>
+
+                        <div className="categories">
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="1"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '1'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c1.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="2"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '2'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c2.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="3"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '3'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c3.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="4"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '4'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c4.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="5"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '5'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c5.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="category-item-wrap">
+                                <label className="category-item">
+                                    <input
+                                        type="radio"
+                                        name="category"
+                                        value="6"
+                                        onChange={this.onChange}
+                                        checked={this.state.category === '6'}/>
+                                    <div className="category-item-inner">
+                                        <img src="img/c6.png" alt=""/>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                         <div className="simple-input">
                             <label className="toggle-label">

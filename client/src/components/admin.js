@@ -29,9 +29,11 @@ class Main extends Component {
                 {(isLoading === false && items.length !== 0) && (
                     <div className="item-titles">
                         <div className="item-img">Image</div>
-                        <div className="item-info">Information</div>
+                        <div className="item-title">Title</div>
+                        <div className="item-description">Info</div>
                         <div className="item-price">Price</div>
                         <div className="item-count">Count</div>
+                        <div className="item-category">Category</div>
                         <div className="item-ship">Shipping</div>
                         <div className="btns"></div>
                     </div>
@@ -59,6 +61,10 @@ class Main extends Component {
 
                         <div className="item-count">
                             {elem.count}
+                        </div>
+
+                        <div className="item-category">
+                            <img className="admin-category" src={`img/c${elem.category}.png`} alt=""/>
                         </div>
 
                         <div className="item-ship">

@@ -10,7 +10,6 @@ const validateItem = require("../validation/item-validation");
 router.get("/", (req, res) => {
     Item
         .find()
-        .limit(5)
         .then(items => res.json(items))
 })
 
@@ -25,7 +24,7 @@ router.post("/", (req, res) => {
     if (!isValid) 
         return res.status(400).json(errors);
     
-    const newItem = new Item({title: req.body.title, description: req.body.description, price: req.body.price, count: req.body.count, isFreeShipping: req.body.isFreeShipping})
+    const newItem = new Item({title: req.body.title, description: req.body.description, price: req.body.price, count: req.body.count, isFreeShipping: req.body.isFreeShipping,category: req.body.category})
 
     if (req.files !== null) {
         const file = req.files.file;
@@ -64,6 +63,7 @@ router.post("/:id", (req, res) => {
             item.price = req.body.price;
             item.count = req.body.count;
             item.isFreeShipping = req.body.isFreeShipping;
+            item.category = req.body.category;
 
             if (req.files !== null) {
                 const file = req.files.file;

@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Header from './components/header'
-import Main from './components/main'
+import Admin from './components/admin'
 import Login from './components/login'
 import Register from './components/register'
 import Second from './components/second'
@@ -31,7 +31,7 @@ class App extends React.Component {
 
                         <div className="content-section">
                             <div className="container">
-                                <Route path='/' exact strict component={Main}/>
+                                <Route path='/' exact strict component={Admin}/>
                                 <Route path='/add' exact strict component={Add}/>
                                 <Route path='/login' exact strict component={Login}/>
                                 <Route path='/register' exact strict component={Register}/>
