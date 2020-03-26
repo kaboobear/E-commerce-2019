@@ -94,8 +94,6 @@ class Edit extends Component {
     }
 
     render() {
-        const user = this.props.item
-
         return (
             <div className="add-wrap">
 

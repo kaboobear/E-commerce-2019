@@ -31,10 +31,7 @@ export const editItem = (item,id,history) => (dispatch,getState) => {
     axios.post(`/item/${id}`,item,tokenConfig(getState))
         .then(res => {
             dispatch({type:EDIT_ITEM,payload:res.data})
-        }).then(()=>{
-            setTimeout(()=>{
-                history.push('/');
-            },250)
+            setTimeout(()=>{history.push('/')},1000)
         })
         .catch(err => {
             dispatch(returnErrors(err.response.data,err.response.status,"ITEM_ERROR"))

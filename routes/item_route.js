@@ -74,18 +74,16 @@ router.post("/:id", auth, (req, res) => {
                     if (err) return console.log(err)
 
                     file.mv(`${__dirname}/../client/public/img/uploads/${fullName}`, err => {
-                        if (err)  return console.log(err);
+                        if (err) console.log(err);
                         
                         item.imgName = fullName;
-                        item
-                            .save()
-                            .then(() => res.json(item));
+                        item.save().then(() => {
+                            res.json(item)
+                        });
                     })
                 })
             } else {
-                item
-                    .save()
-                    .then(() => res.json(item));
+                item.save().then(() => res.json(item));
             }
         })
 })

@@ -16,9 +16,9 @@ import {loadUser} from './actions/authActions'
 
 class App extends React.Component {
 
-    // componentDidMount(){
-    //     store.dispatch(loadUser())
-    // }
+    componentDidMount(){
+        store.dispatch(loadUser())
+    }
 
     render() {
 

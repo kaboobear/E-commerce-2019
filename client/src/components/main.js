@@ -18,7 +18,7 @@ class Main extends Component {
     }
 
     render() {
-        const {isAuth, isLoading, items} = this.props;
+        const { isLoading, items} = this.props;
 
         return (
             <div className="main-section">
