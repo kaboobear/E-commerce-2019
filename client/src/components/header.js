@@ -6,13 +6,37 @@ import {connect} from 'react-redux'
 class Header extends Component {
 
     render() {
-        const {user,isLoading} = this.props;
+        const {user, isLoading} = this.props;
 
         return (
             <div className="header-section">
+                
                 <div className="container flex-wrap">
                     <NavLink exact className="header-logo" to="/">Template</NavLink>
-                    <ul className="header-nav">
+
+                    {(isLoading === false) && (
+                        <ul className="header-nav">
+                            <li>
+                                <NavLink exact className="nav-item" to="/">Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink exact className="nav-item" to="/about">About</NavLink>
+                            </li>
+                            <li>
+                                <NavLink exact className="nav-item" to="/faq">FAQ</NavLink>
+                            </li>
+                            <li>
+                                <NavLink exact className="nav-item" to="/contacts">Contacts</NavLink>
+                            </li>
+                            {(user.isAdmin) && (
+                                <li>
+                                    <NavLink exact className="nav-item" to="/admin">Panel</NavLink>
+                                </li>
+                            )}
+                        </ul>
+                    )}
+
+                    <ul className="header-user">
                         {(isLoading === false) && (!this.props.isAuth)
                             ? (
                                 <span>

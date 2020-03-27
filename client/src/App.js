@@ -1,48 +1,51 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import './App.css';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import Header from './components/header'
+import Items from './components/items'
 import Admin from './components/admin'
 import Login from './components/login'
 import Register from './components/register'
-import Second from './components/second'
 import Add from './components/addItem'
 import Edit from './components/editItem'
-import './App.css';
 
 import store from './store';
 import {Provider} from 'react-redux';
 import {loadUser} from './actions/authActions'
 
 class App extends React.Component {
-
-    componentDidMount(){
+    componentDidMount() {
         store.dispatch(loadUser())
     }
 
     render() {
-
         return (
             <Provider store={store}>
                 <Router>
                     <div className="wrapper">
-
                         <Header/>
 
                         <div className="content-section">
+
                             <div className="container">
-                                <Route path='/' exact strict component={Admin}/>
-                                <Route path='/add' exact strict component={Add}/>
-                                <Route path='/login' exact strict component={Login}/>
-                                <Route path='/register' exact strict component={Register}/>
+                                <Route path='/' exact strict component={Items}/>
+
+                                <Route path='/admin' exact strict component={Admin}/>
+                                <Route
+                                    path='/add'
+                                    exact
+                                    strict
+                                    component={Add}/>
                                 <Route
                                     path='/edit/:id'
                                     exact
-                                    render={({match}) => (<Edit id={match.params.id}/>)}/>
-                                <Route path='/second' exact component={Second}/>
+                                    render = {({match})=><Edit id={match.params.id}/>}/>
+
+                                <Route path='/login' exact strict component={Login}/>
+                                <Route path='/register' exact strict component={Register}/>
                             </div>
                         </div>
-
                     </div>
                 </Router>
             </Provider>

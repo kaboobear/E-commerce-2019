@@ -68,17 +68,26 @@ class Edit extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.state.isLoaded === false) {
-            this.setState({
-                title: this.props.item.title,
-                description: this.props.item.description,
-                price: this.props.item.price,
-                count: this.props.item.count,
-                isFreeShipping: this.props.item.isFreeShipping,
-                filename: this.props.item.imgName,
-                category: this.props.item.category,
-                isLoaded: true
-            })
+        if (!this.props.isUserLoading) {
+            (!this.props.user.isAdmin) && this
+                .props
+                .history
+                .push("/");
+
+            if (this.state.isLoaded === false) {
+                this.setState({
+                    title: this.props.item.title,
+                    description: this.props.item.description,
+                    price: this.props.item.price,
+                    count: this.props.item.count,
+                    isFreeShipping: this.props.item.isFreeShipping,
+                    filename: this.props.item.imgName,
+                    category: this.props.item.category,
+                    isLoaded: true
+                })
+
+                console.log(this.state);
+            }
         }
 
         const error = this.props.error;
@@ -95,198 +104,198 @@ class Edit extends Component {
             .props
             .clearErrors();
 
-        this.setState({isLoaded:false})
+        this.setState({isLoaded: false})
     }
 
     render() {
         return (
             <div className="add-wrap">
-
-                <div className="abs-block">
-                    <NavLink strict to="/" className="back-btn btn">
-                        Back
-                    </NavLink>
-                </div>
-
                 {(this.state.isLoaded) && (
-
-                <div className="add-section">
-                    <form id="add-form" name="add-form" onSubmit={this.onSubmit} autoComplete="off">
-                        <div className="simple-input file-input">
-                            <img
-                                className="file-img"
-                                src={(this.state.previewImg === null && this.state.filename === "default.png")
-                                ? '../../img/default.png'
-                                : (this.state.file === null)
-                                    ? '../../img/uploads/' + this.state.filename
-                                    : this.state.previewImg}
-                                alt=""/>
-                            <label className="file-label">
-                                <input className="file-input" name="file" onChange={this.onChange} type="file"/>
-                                <span className="file-btn">Select file</span>
-                            </label>
+                    <div>
+                        <div className="abs-block">
+                            <NavLink strict to="/admin" className="back-btn btn">
+                                Back
+                            </NavLink>
                         </div>
-                        <div className="simple-input">
-                            <input
-                                type="text"
-                                value={this.state.title}
-                                name="title"
-                                onChange={this.onChange}
-                                placeholder="Title"
-                                className={this.state.msg.title && "error"}/> {this.state.msg.title && (
-                                <div className="exclam">
-                                    <img src="../../img/exclam-ico.png" alt=""/>
+
+                        <div className="add-section">
+                            <form id="add-form" name="add-form" onSubmit={this.onSubmit} autoComplete="off">
+                                <div className="simple-input file-input">
+                                    <img
+                                        className="file-img"
+                                        src={(this.state.previewImg === null && this.state.filename === "default.png")
+                                        ? '../../img/default.png'
+                                        : (this.state.file === null)
+                                            ? '../../img/uploads/' + this.state.filename
+                                            : this.state.previewImg}
+                                        alt=""/>
+                                    <label className="file-label">
+                                        <input className="file-input" name="file" onChange={this.onChange} type="file"/>
+                                        <span className="file-btn">Select file</span>
+                                    </label>
                                 </div>
-                            )}
-                        </div>
-                        <div className="simple-input">
-                            <textarea
-                                value={this.state.description}
-                                name="description"
-                                onChange={this.onChange}
-                                placeholder="Description"
-                                className={this.state.msg.description && "error"}></textarea>
-                            {this.state.msg.description && (
-                                <span className="exclam area"><img src="../../img/exclam-ico.png" alt=""/></span>
-                            )}
-                        </div>
-                        <div className="simple-input">
-                            <input
-                                type="number"
-                                value={this.state.price}
-                                name="price"
-                                onChange={this.onChange}
-                                placeholder="Price"
-                                className={this.state.msg.price && "error"}/> {this.state.msg.price && (
-                                <div className="exclam">
-                                    <img src="../../img/exclam-ico.png" alt=""/>
+                                <div className="simple-input">
+                                    <input
+                                        type="text"
+                                        value={this.state.title}
+                                        name="title"
+                                        onChange={this.onChange}
+                                        placeholder="Title"
+                                        className={this.state.msg.title && "error"}/> {this.state.msg.title && (
+                                        <div className="exclam">
+                                            <img src="../../img/exclam-ico.png" alt=""/>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
-                        <div className="simple-input">
-                            <input
-                                type="number"
-                                value={this.state.count}
-                                name="count"
-                                onChange={this.onChange}
-                                placeholder="Count"
-                                className={this.state.msg.count && "error"}/> {this.state.msg.count && (
-                                <div className="exclam">
-                                    <img src="../../img/exclam-ico.png" alt=""/>
+                                <div className="simple-input">
+                                    <textarea
+                                        value={this.state.description}
+                                        name="description"
+                                        onChange={this.onChange}
+                                        placeholder="Description"
+                                        className={this.state.msg.description && "error"}></textarea>
+                                    {this.state.msg.description && (
+                                        <span className="exclam area"><img src="../../img/exclam-ico.png" alt=""/></span>
+                                    )}
                                 </div>
-                            )}
+                                <div className="simple-input">
+                                    <input
+                                        type="number"
+                                        value={this.state.price}
+                                        name="price"
+                                        onChange={this.onChange}
+                                        placeholder="Price"
+                                        className={this.state.msg.price && "error"}/> {this.state.msg.price && (
+                                        <div className="exclam">
+                                            <img src="../../img/exclam-ico.png" alt=""/>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="simple-input">
+                                    <input
+                                        type="number"
+                                        value={this.state.count}
+                                        name="count"
+                                        onChange={this.onChange}
+                                        placeholder="Count"
+                                        className={this.state.msg.count && "error"}/> {this.state.msg.count && (
+                                        <div className="exclam">
+                                            <img src="../../img/exclam-ico.png" alt=""/>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="category-title">
+                                    Category
+                                </div>
+
+                                <div className="categories">
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="1"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '1'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c1.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="2"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '2'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c2.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="3"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '3'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c3.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="4"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '4'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c4.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="5"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '5'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c5.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="category-item-wrap">
+                                        <label className="category-item">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                value="6"
+                                                onChange={this.onChange}
+                                                checked={this.state.category === '6'}/>
+                                            <div className="category-item-inner">
+                                                <img src="../../img/c6.png" alt=""/>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className="simple-input">
+                                    <label className="toggle-label">
+                                        <input
+                                            type="checkbox"
+                                            name="isFreeShipping"
+                                            onChange={this.onChange}
+                                            checked={this.state.isFreeShipping}/>
+                                        <span className="toggle-box">
+                                            <div className="toggle-box-line"></div>
+
+                                            <div className="toggle-box-circle"></div>
+                                        </span>
+                                        <span className="toggle-text">Is Free Shipping</span>
+                                    </label>
+                                </div>
+
+                                <button className="btn" type="submit">Save</button>
+                            </form>
                         </div>
-
-                        <div className="category-title">
-                            Category
-                        </div>
-
-                        <div className="categories">
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="1"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '1'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c1.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="2"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '2'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c2.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="3"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '3'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c3.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="4"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '4'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c4.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="5"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '5'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c5.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="category-item-wrap">
-                                <label className="category-item">
-                                    <input
-                                        type="radio"
-                                        name="category"
-                                        value="6"
-                                        onChange={this.onChange}
-                                        checked={this.state.category === '6'}/>
-                                    <div className="category-item-inner">
-                                        <img src="../../img/c6.png" alt=""/>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div className="simple-input">
-                            <label className="toggle-label">
-                                <input
-                                    type="checkbox"
-                                    name="isFreeShipping"
-                                    onChange={this.onChange}
-                                    checked={this.state.isFreeShipping}/>
-                                <span className="toggle-box">
-                                    <div className="toggle-box-line"></div>
-
-                                    <div className="toggle-box-circle"></div>
-                                </span>
-                                <span className="toggle-text">Is Free Shipping</span>
-                            </label>
-                        </div>
-
-                        <button className="btn" type="submit">Save</button>
-                    </form>
-                </div>
+                    </div>
                 )}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => ({item: state.items.item, error: state.error})
+const mapStateToProps = (state) => ({isLoading: state.items.isLoading, item: state.items.item, error: state.error, user: state.auth.user, isUserLoading: state.auth.isLoading})
 
 export default withRouter(connect(mapStateToProps, {editItem, getItem, clearErrors})(Edit));

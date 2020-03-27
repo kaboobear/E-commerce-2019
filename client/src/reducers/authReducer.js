@@ -40,7 +40,8 @@ export default function(state=initialState,action){
                 token:null,
                 isLoading:false,
                 isAuthenticated:false,
-                user:{}
+                user:{},
+                isAdmin:false
             }
         default:
             return state
