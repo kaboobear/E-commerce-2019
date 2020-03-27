@@ -17,7 +17,7 @@ export const getItems = (page, limit) => dispatch => {
         .then(res => {
             setTimeout(() => {
                 dispatch({type: GET_ITEMS, payload: res.data})
-            }, 400)
+            }, 300)
         })
         .catch(err => {
             console.log(err)

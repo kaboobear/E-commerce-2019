@@ -14,6 +14,11 @@ const UserSchema = new Schema({
     pass:{
         type:String,
         required:true
+    },
+    isAdmin:{
+        type:Boolean,
+        required:true,
+        default:false
     }
 },{timestamps:true});
 

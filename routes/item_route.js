@@ -3,14 +3,13 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const Item = require('../models/item_model');
-const auth = require('../middleware/auth');
+// const auth = require('../middleware/auth');
+const pagination = require('../middleware/pagination');
 
 const validateItem = require("../validation/item-validation");
 
-router.get("/", (req, res) => {
-    Item
-        .find()
-        .then(items => res.json(items))
+router.get("/",pagination(Item), (req, res) => {
+    res.json(req.results);
 })
 
 router.get("/:id", (req, res) => {
