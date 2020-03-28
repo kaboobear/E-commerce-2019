@@ -27,7 +27,7 @@ class Items extends Component {
     componentDidMount() {
         this
             .props
-            .getItems(1, 9);
+            .getItems(1, 12);
     }
 
     render() {
