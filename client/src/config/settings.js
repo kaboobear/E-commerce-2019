@@ -21,7 +21,7 @@ export const SlectStyle  = {
             backgroundColor: isSelected
                 ? "#5cdb95 !important"
                 : isFocused
-                    ? "rgba(0,0,0,.02) !important"
+                    ? "rgba(0,0,0,.04) !important"
                     : null,
             padding: "16px",
             fontSize: "16px",
