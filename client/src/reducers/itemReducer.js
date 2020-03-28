@@ -11,6 +11,8 @@ const initialState = {
     items: [],
     item: {},
     pagination: {},
+    filters: [],
+    sort: 0,
     isLoading: true
 }
 
@@ -20,7 +22,9 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 items: action.payload.results,
-                pagination: action.payload.pag,
+                pagination: action.payload.pagination,
+                filters: action.payload.filters,
+                sort: action.payload.sort,
                 isLoading: false
             }
 

@@ -9,8 +9,10 @@ class Side extends Component {
     state = {
         category: '0',
         rangeStart: 0,
-        rangeEnd: 10000,
-        shipping: '0'
+        rangeEnd: 100,
+        maxPrice:100,
+        shipping: '0',
+        isPricing: false,
     }
 
     onChange = (e) => {
@@ -20,8 +22,26 @@ class Side extends Component {
             [name]: (type === 'checkbox')
                 ? checked
                 : value
+        },()=>{
+            this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort)
         })
     }
+
+    onSlide = (render, handle, value, un, percent) => {
+        this.setState({
+            rangeStart: parseInt(value[0]),
+            rangeEnd: parseInt(value[1])
+        },()=>{
+            if(!this.state.isPricing){
+                this.setState({isPricing:true},()=>{
+                    setTimeout(()=>{
+                        this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort)
+                        this.setState({isPricing:false})
+                    },400)
+                })
+            }
+        });
+    };
 
     componentDidMount() {
         //Accordeon start
@@ -41,14 +61,6 @@ class Side extends Component {
             }
         });
     }
-
-    onSlide = (render, handle, value, un, percent) => {
-        console.log(value);
-        this.setState({
-            rangeStart: parseInt(value[0]),
-            rangeEnd: parseInt(value[1])
-        });
-    };
 
     render() {
         const {isLoading, items} = this.props;
@@ -153,11 +165,11 @@ class Side extends Component {
                         <div className="acc-content active">
                             <Nouislider
                                 connect
-                                start={[0, 10000]}
+                                start={[0, this.state.maxPrice]}
                                 behaviour="tap"
                                 range={{
                                 min: [0],
-                                max: [10000]
+                                max: [this.state.maxPrice]
                             }}
                                 onSlide={this.onSlide}/>
 
@@ -177,15 +189,21 @@ class Side extends Component {
 
                         <div className="acc-content active">
                             <label className="check-label">
+                                <input type="radio" name="shipping" value="0" checked={this.state.shipping==='0'} onChange={this.onChange}/>
+                                <span className="check-box"></span>
+                                <span className="check-text">All</span>
+                            </label>
+
+                            <label className="check-label">
                                 <input type="radio" name="shipping" value="1" checked={this.state.shipping==='1'} onChange={this.onChange}/>
                                 <span className="check-box"></span>
-                                <span className="check-text">Free Shipping</span>
+                                <span className="check-text">Free</span>
                             </label>
 
                             <label className="check-label">
                                 <input type="radio" name="shipping" checked={this.state.shipping==='2'} onChange={this.onChange} value="2"/>
                                 <span className="check-box"></span>
-                                <span className="check-text">Paid Shipping</span>
+                                <span className="check-text">Paid</span>
                             </label>
                         </div>
 

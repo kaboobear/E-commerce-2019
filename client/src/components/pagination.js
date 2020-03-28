@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 class Pagination extends Component {
     createPag = () => {
         const pagination = this.props.pagination
+        const filters = this.props.filters
+        const sort = this.props.sort
         let paginationElemnt = [];
         let paginationInnerElement = [];
         let isBackDots = false;
@@ -40,7 +42,7 @@ class Pagination extends Component {
                     onClick={() => {
                     this
                         .props
-                        .getItems(x + 1, pagination.limit)
+                        .getItems(x + 1, pagination.limit,...filters,sort)
                 }}
                     className={`pag-item${ (pagination.currentPage !== x + 1)
                     ? ''
@@ -56,7 +58,7 @@ class Pagination extends Component {
                 {(pagination.pagesCount > 4) && (
                     <li
                         key={-3}
-                        onClick={() => (pagination.currentPage > 1) && this.props.getItems(pagination.prev.page, pagination.limit)}
+                        onClick={() => (pagination.currentPage > 1) && this.props.getItems(pagination.prev.page, pagination.limit,...filters,sort)}
                         className={`pag-prev${ (pagination.currentPage > 1)
                         ? ''
                         : ' unactive'}`}>
@@ -69,7 +71,7 @@ class Pagination extends Component {
                 {(pagination.pagesCount > 4) && (
                     <li
                         key={-4}
-                        onClick={() => (pagination.currentPage < pagination.pagesCount) && this.props.getItems(pagination.next.page, pagination.limit)}
+                        onClick={() => (pagination.currentPage < pagination.pagesCount) && this.props.getItems(pagination.next.page, pagination.limit,...filters,sort)}
                         className={`pag-next${ (pagination.currentPage < pagination.pagesCount)
                         ? ''
                         : ' unactive'}`}>
