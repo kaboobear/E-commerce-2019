@@ -23,7 +23,7 @@ class Side extends Component {
                 ? checked
                 : value
         },()=>{
-            this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort)
+            this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort,this.props.regex)
         })
     }
 
@@ -35,7 +35,7 @@ class Side extends Component {
             if(!this.state.isPricing){
                 this.setState({isPricing:true},()=>{
                     setTimeout(()=>{
-                        this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort)
+                        this.props.getItems(1,this.props.pagination.limit,this.state.category,this.state.rangeStart,this.state.rangeEnd,this.state.shipping,this.props.sort,this.props.regex)
                         this.setState({isPricing:false})
                     },400)
                 })

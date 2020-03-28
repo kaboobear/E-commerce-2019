@@ -6,6 +6,7 @@ class Pagination extends Component {
         const pagination = this.props.pagination
         const filters = this.props.filters
         const sort = this.props.sort
+        const regex = this.props.regex
         let paginationElemnt = [];
         let paginationInnerElement = [];
         let isBackDots = false;
@@ -42,7 +43,7 @@ class Pagination extends Component {
                     onClick={() => {
                     this
                         .props
-                        .getItems(x + 1, pagination.limit,...filters,sort)
+                        .getItems(x + 1, pagination.limit,...filters,sort,regex)
                 }}
                     className={`pag-item${ (pagination.currentPage !== x + 1)
                     ? ''
@@ -58,7 +59,7 @@ class Pagination extends Component {
                 {(pagination.pagesCount > 4) && (
                     <li
                         key={-3}
-                        onClick={() => (pagination.currentPage > 1) && this.props.getItems(pagination.prev.page, pagination.limit,...filters,sort)}
+                        onClick={() => (pagination.currentPage > 1) && this.props.getItems(pagination.prev.page, pagination.limit,...filters,sort,regex)}
                         className={`pag-prev${ (pagination.currentPage > 1)
                         ? ''
                         : ' unactive'}`}>
@@ -71,7 +72,7 @@ class Pagination extends Component {
                 {(pagination.pagesCount > 4) && (
                     <li
                         key={-4}
-                        onClick={() => (pagination.currentPage < pagination.pagesCount) && this.props.getItems(pagination.next.page, pagination.limit,...filters,sort)}
+                        onClick={() => (pagination.currentPage < pagination.pagesCount) && this.props.getItems(pagination.next.page, pagination.limit,...filters,sort,regex)}
                         className={`pag-next${ (pagination.currentPage < pagination.pagesCount)
                         ? ''
                         : ' unactive'}`}>

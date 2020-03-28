@@ -13,6 +13,7 @@ const initialState = {
     pagination: {},
     filters: [],
     sort: 0,
+    regex:'',
     isLoading: true
 }
 
@@ -25,6 +26,7 @@ export default function (state = initialState, action) {
                 pagination: action.payload.pagination,
                 filters: action.payload.filters,
                 sort: action.payload.sort,
+                regex: action.payload.regex,
                 isLoading: false
             }
 

@@ -31,6 +31,7 @@ const pagination = (model) => async(req, res, next) => {
 
 
 
+
     //Sort
     const sortVal = parseInt(req.query.sort);
     results.sort = sortVal;
@@ -41,6 +42,23 @@ const pagination = (model) => async(req, res, next) => {
     if(sortVal === 2) sort = {price:-1}
     if(sortVal === 3) sort = {createdAt:1}
     if(sortVal === 4) sort = {createdAt:-1}
+
+
+
+
+
+
+
+
+
+
+    //Search
+    const regex = req.query.regex
+
+    results.regex = regex;
+
+    match.title = new RegExp(regex,"i");
+
 
 
 
@@ -74,11 +92,6 @@ const pagination = (model) => async(req, res, next) => {
             limit: limit
         }
     
-
-
-
-
-    //Sorting
 
 
 

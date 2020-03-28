@@ -10,10 +10,10 @@ import {returnErrors} from './errorActions';
 import {tokenConfig} from './authActions';
 import axios from 'axios';
 
-export const getItems = (page, limit, category=0, from=0, to=1000000, ship=0, sort=1) => dispatch => {
+export const getItems = (page, limit, category=0, from=0, to=1000000, ship=0, sort=1, regex='') => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`/item?page=${page}&limit=${limit}&category=${category}&from=${from}&to=${to}&ship=${ship}&sort=${sort}`)
+        .get(`/item?page=${page}&limit=${limit}&category=${category}&from=${from}&to=${to}&ship=${ship}&sort=${sort}&regex=${regex}`)
         .then(res => {
             setTimeout(() => {
                 dispatch({type: GET_ITEMS, payload: res.data})

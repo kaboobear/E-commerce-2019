@@ -2,7 +2,7 @@ export const SlectStyle  = {
     control: (styles, {data, isDisabled, isFocused, isSelected}) => {
         return {
             ...styles,
-            border: "1px solid #ccc !important",
+            border: "1px solid #ddd !important",
             boxShadow:"none !important",
             borderRadius:"10px",
             cursor:"pointer !important"

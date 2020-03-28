@@ -11,16 +11,29 @@ import {SlectStyle, Options} from '../config/settings'
 
 class Items extends Component {
     state = {
-        sort: 0
+        sort: 0,
+        regexText: '',
     }
 
-    onChange = (val) => {
+    onSelectChange = (val) => {
         this.setState({
             sort: val.value
         }, () => {
             this
                 .props
-                .getItems(1, this.props.pagination.limit, ...this.props.filters, this.state.sort);
+                .getItems(1, this.props.pagination.limit, ...this.props.filters, this.state.sort,this.state.regexText);
+        })
+    }
+
+    onChange = (e) => {
+        const {value, name, type, checked} = e.target;
+
+        this.setState({
+            [name]: (type === 'checkbox')
+                ? checked
+                : value
+        },()=>{
+            this.props.getItems(1,this.props.pagination.limit,...this.props.filters,this.props.sort,this.state.regexText)
         })
     }
 
@@ -31,19 +44,23 @@ class Items extends Component {
     }
 
     render() {
-        const {isLoading, items, pagination, filters, sort} = this.props;
+        const {isLoading, items, pagination, filters, sort, regex} = this.props;
 
         return (
             <div className="items-section">
 
                 <div className="flex-wrap">
-                    <Side getItems={this.props.getItems} pagination={pagination} sort={sort}/>
+                    <Side getItems={this.props.getItems} pagination={pagination} sort={sort} regex={regex}/>
 
                     <div className="products-side-wrap">
                             <div className="select-wrap">
+                                <div className="simple-input search-input">
+                                    <input type="text" name="regexText" value={this.state.regexText} onChange={this.onChange} placeholder="Search..."/>
+                                </div>
+
                                 <Select
                                     options={Options}
-                                    onChange={this.onChange}
+                                    onChange={this.onSelectChange}
                                     defaultValue={Options[0]}
                                     label="Sorting"
                                     isSearchable={false}
@@ -71,6 +88,7 @@ class Items extends Component {
                                                             getItems={this.props.getItems}
                                                             pagination={pagination}
                                                             filters={filters}
+                                                            regex={regex}
                                                             sort={sort}/>
                                                     </div>
                                                 )}
@@ -96,6 +114,7 @@ const mapStateToProps = (state) => ({
     pagination: state.items.pagination,
     filters: state.items.filters,
     sort: state.items.sort,
+    regex: state.items.regex,
     items: state.items.items,
     isAuth: state.auth.isAuthenticated,
     isLoading: state.items.isLoading
