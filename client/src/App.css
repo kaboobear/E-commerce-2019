@@ -23,6 +23,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+  outline: none !important;
 }
 
 
@@ -1222,6 +1227,18 @@ textarea:focus::placeholder {
   }
 }
 
+@media(max-width:600px){
+  .one-item-abs{
+    display: flex;
+  }
+}
+
+@media(max-width:375px){
+  .one-item-abs .back-btn{
+    width: 40px;
+    height: 40px;
+  }
+}
 
 
 
@@ -1684,6 +1701,8 @@ textarea:focus::placeholder {
   cursor: pointer;
   transition: .3s;
   transform: rotate(180deg);
+  display: none;
+  overflow: hidden;
 }
 
 .hide-btn img{
@@ -1726,6 +1745,10 @@ textarea:focus::placeholder {
     left:50%;
     transform: translateX(-50%);
   }
+
+  .hide-btn{
+    display: flex;
+  }
 }
 
 @media(max-width:500px){
@@ -1756,6 +1779,8 @@ textarea:focus::placeholder {
     top:0;
     border-radius: 0;
     height: 100%;
+    bottom:auto;
+
   }
 
   .side-section .acc-content{
@@ -1769,6 +1794,19 @@ textarea:focus::placeholder {
 
   .side-section .category-item-wrap{
     width: 25%;
+  }
+
+  .side-section .check-label+.check-label {
+    margin-top: 12px;
+  }
+
+  
+  .side-section .check-text {
+    font-size: 16px
+  }
+  
+  .side-section .check-box {
+    margin-top: -3px;
   }
 }
 
@@ -2445,6 +2483,12 @@ textarea:focus::placeholder {
   margin-bottom: -5px !important;
 }
 
+@media(max-width: 900px) {
+  .home-block{
+  margin-bottom: -10px;
+  }
+}
+
 @media(max-width: 768px) {
   .info-page-title {
     font-size: 34px;
@@ -2454,7 +2498,7 @@ textarea:focus::placeholder {
 
   .home-block {
     margin-top: 35px;
-    margin-bottom: -40px;
+    margin-bottom: -10px;
   }
 }
 
@@ -2473,6 +2517,11 @@ textarea:focus::placeholder {
 
   .contacts-info {
     margin-left: 0px;
+  }
+
+  .home-block {
+    margin-top: 35px;
+    margin-bottom: -10px;
   }
 }
 
