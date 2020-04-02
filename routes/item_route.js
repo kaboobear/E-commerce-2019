@@ -8,7 +8,7 @@ const pagination = require('../middleware/pagination');
 
 const validateItem = require("../validation/item-validation");
 
-router.get("/",pagination(Item), (req, res) => {
+router.get("/", pagination(Item), (req, res) => {
     res.json(req.results);
 })
 
@@ -23,29 +23,39 @@ router.post("/", (req, res) => {
     if (!isValid) 
         return res.status(400).json(errors);
     
-    const newItem = new Item({title: req.body.title, description: req.body.description, price: req.body.price, count: req.body.count, isFreeShipping: req.body.isFreeShipping,category: req.body.category})
+    const newItem = new Item({
+        title: req.body.title,
+        description: req.body.description,
+        price: req.body.price,
+        count: req.body.count,
+        isFreeShipping: req.body.isFreeShipping,
+        category: req.body.category
+    })
 
     if (req.files !== null) {
         const file = req.files.file;
         const extName = path.extname(file.name);
         const fullName = newItem._id + extName;
         file.mv(`${__dirname}/../client/public/img/uploads/${fullName}`, err => {
-            if (err) console.log(err);
+            if (err) 
+                console.log(err);
             else {
                 newItem.imgName = fullName;
-                newItem.save().then(item => {
-                    res.json(item)
-                })
+                newItem
+                    .save()
+                    .then(item => {
+                        res.json(item)
+                    })
             }
         })
     } else {
         newItem.imgName = "default.png"
-        newItem.save().then(item => {
-            res.json(item)
-        })
-    } 
-
-
+        newItem
+            .save()
+            .then(item => {
+                res.json(item)
+            })
+    }
 
 })
 
@@ -67,22 +77,44 @@ router.post("/:id", (req, res) => {
             if (req.files !== null) {
                 const file = req.files.file;
                 const extName = path.extname(file.name);
-                const fullName = item._id + extName;
+                const fullName =item._id + extName;
 
-                fs.unlink(`${__dirname}/../client/public/img/uploads/${item.imgName}`, (err) => {
-                    if (err) return console.log(err)
-
+                if (item.imgName === "default.png") {
                     file.mv(`${__dirname}/../client/public/img/uploads/${fullName}`, err => {
-                        if (err) console.log(err);
+                        if (err) 
+                            console.log(err);
                         
                         item.imgName = fullName;
-                        item.save().then(() => {
-                            res.json(item)
-                        });
+                        item
+                            .save()
+                            .then(() => {
+
+                                res.json(item)
+                            });
                     })
-                })
+                } else {
+                    fs.unlink(`${__dirname}/../client/public/img/uploads/${item.imgName}`, (err) => {
+                        if (err) 
+                            return console.log(err)
+
+                        file.mv(`${__dirname}/../client/public/img/uploads/${fullName}`, err => {
+                            if (err) 
+                                console.log(err);
+                            
+                            item.imgName = fullName;
+                            item
+                                .save()
+                                .then(() => {
+
+                                    res.json(item)
+                                });
+                        })
+                    })
+                }
             } else {
-                item.save().then(() => res.json(item));
+                item
+                    .save()
+                    .then(() => res.json(item));
             }
         })
 })

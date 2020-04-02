@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import path from 'path';
 import {clearErrors} from '../actions/errorActions'
-import {editItem, getItem} from '../actions/itemActions'
+import {editItem, getItem, setUpdated} from '../actions/itemActions'
 import {withRouter} from 'react-router-dom'
 import {NavLink} from 'react-router-dom';
 
@@ -67,8 +67,17 @@ class Edit extends Component {
             .getItem(this.props.id);
     }
 
+
+
     componentDidUpdate(prevProps) {
-        if (!this.props.isUserLoading) {
+        if (this.props.isUpdated) {
+            setTimeout(()=>{
+                this.props.setUpdated();
+                window.location = "/admin";
+            },100)
+        }
+
+        if (!this.props.isUserLoading && !this.props.isLoading) {
             (!this.props.user.isAdmin) && this
                 .props
                 .history
@@ -85,8 +94,6 @@ class Edit extends Component {
                     category: this.props.item.category,
                     isLoaded: true
                 })
-
-                console.log(this.state);
             }
         }
 
@@ -110,7 +117,7 @@ class Edit extends Component {
     render() {
         return (
             <div className="add-wrap">
-                {(this.state.isLoaded) && (
+
                     <div>
                         <div className="abs-block">
                             <NavLink strict to="/admin" className="back-btn btn">
@@ -118,6 +125,7 @@ class Edit extends Component {
                             </NavLink>
                         </div>
 
+                        {(this.state.isLoaded) && (
                         <div className="add-section">
                             <form id="add-form" name="add-form" onSubmit={this.onSubmit} autoComplete="off">
                                 <div className="simple-input file-input">
@@ -289,13 +297,13 @@ class Edit extends Component {
                                 <button className="btn" type="submit">Save</button>
                             </form>
                         </div>
+                                        )}
                     </div>
-                )}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => ({isLoading: state.items.isLoading, item: state.items.item, error: state.error, user: state.auth.user, isUserLoading: state.auth.isLoading})
+const mapStateToProps = (state) => ({isLoading: state.items.isLoading, item: state.items.item, error: state.error, user: state.auth.user, isUserLoading: state.auth.isLoading, isUpdated: state.items.isUpdated})
 
-export default withRouter(connect(mapStateToProps, {editItem, getItem, clearErrors})(Edit));
+export default withRouter(connect(mapStateToProps, {editItem, getItem, clearErrors, setUpdated})(Edit));

@@ -4,7 +4,9 @@ import {
     DELETE_ITEM,
     ITEMS_LOADING,
     GET_ITEM,
-    EDIT_ITEM
+    EDIT_ITEM,
+    SET_UPDATED,
+    SET_ADDED
 } from '../actions/types'
 
 const initialState = {
@@ -13,8 +15,10 @@ const initialState = {
     pagination: {},
     filters: [],
     sort: 0,
-    regex:'',
-    isLoading: true
+    regex: '',
+    isLoading: true,
+    isUpdated: false,
+    isAdded: false,
 }
 
 export default function (state = initialState, action) {
@@ -29,12 +33,21 @@ export default function (state = initialState, action) {
                 regex: action.payload.regex,
                 isLoading: false
             }
-
         case GET_ITEM:
             return {
                 ...state,
                 item: action.payload,
                 isLoading: false
+            }
+        case SET_UPDATED:
+            return {
+                ...state,
+                isUpdated: false
+            }
+        case SET_ADDED:
+            return {
+                ...state,
+                isAdded:false,
             }
         case DELETE_ITEM:
             return {
@@ -46,6 +59,7 @@ export default function (state = initialState, action) {
         case ADD_ITEM:
             return {
                 ...state,
+                isAdded:true,
                 items: [
                     action.payload, ...state.items
                 ]
@@ -53,6 +67,7 @@ export default function (state = initialState, action) {
         case EDIT_ITEM:
             return {
                 ...state,
+                isUpdated: true,
                 items: state
                     .items
                     .map(elem => {
@@ -60,7 +75,7 @@ export default function (state = initialState, action) {
                             return action.payload;
                         else 
                             return elem
-                    })
+                    }),
             }
         case ITEMS_LOADING:
             return {

@@ -67,9 +67,14 @@ const pagination = (model) => async(req, res, next) => {
 
     //Pagination
     const page = parseInt(req.query.page);
-    const limit = parseInt(req.query.limit);
+    let limit = parseInt(req.query.limit);
+    let startIndex = 0;
 
-    const startIndex = (page - 1) * limit;
+    if (limit === -1) {
+        limit = 1000000;
+    }
+    else{
+    startIndex = (page - 1) * limit;
     const endIndex = (page) * limit;
     const itemsCount = await model
         .find(match)
@@ -91,6 +96,7 @@ const pagination = (model) => async(req, res, next) => {
             page: page - 1,
             limit: limit
         }
+    }
     
 
 

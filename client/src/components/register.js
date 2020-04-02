@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import {withRouter, NavLink} from 'react-router-dom'
 import {register} from '../actions/authActions'
 import {clearErrors} from '../actions/errorActions'
 import {connect} from 'react-redux'
@@ -63,10 +63,16 @@ class Register extends React.Component {
         return (
             <div className="register-section">
 
-                <h2 className="log-title">Register</h2>
 
                 <div className="flex-wrap center">
                     <form onSubmit={this.onSubmit} className="add-form" autoComplete="off">
+                    <h2 className="log-title">Sticky</h2>
+
+                        <ul className="log-buttons">
+                            <NavLink exact to="/login">Login</NavLink>
+                            <NavLink exact to="/register">Registration</NavLink>
+                        </ul>
+
                         <div className="simple-input">
                             <input
                                 type="text"

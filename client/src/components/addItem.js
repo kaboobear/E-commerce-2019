@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import path from 'path';
 import {clearErrors} from '../actions/errorActions'
-import {addItem} from '../actions/itemActions'
+import {addItem, setAdded} from '../actions/itemActions'
 import {NavLink} from 'react-router-dom';
 
 class Add extends Component {
@@ -95,26 +95,31 @@ class Add extends Component {
         })
     }
 
+    componentDidMount() {
+        console.log("add item");
+    }
+
     componentDidUpdate(prevProps) {
+        if (this.props.isAdded) {
+            setTimeout(() => {
+                this
+                    .props
+                    .setAdded()
+
+                this
+                    .props
+                    .clearErrors();
+
+                window.location = "/admin";
+            }, 100)
+        }
+
         if (!this.props.isUserLoading) {
             (!this.props.user.isAdmin) && this
                 .props
                 .history
                 .push("/");
         }
-
-        setTimeout(() => {
-            if (prevProps.item.items.length !== this.props.item.items.length) {
-                this
-                    .props
-                    .clearErrors();
-
-                this
-                    .props
-                    .history
-                    .push("/admin");
-            }
-        }, 500)
 
         const error = this.props.error;
         if (error !== prevProps.error) {
@@ -327,5 +332,5 @@ class Add extends Component {
         )
     }
 }
-const mapStateToProps = (state) => ({item: state.items, error: state.error, user: state.auth.user, isUserLoading: state.auth.isLoading})
-export default connect(mapStateToProps, {addItem, clearErrors})(Add);
+const mapStateToProps = (state) => ({item: state.items, error: state.error, user: state.auth.user, isUserLoading: state.auth.isLoading, isAdded: state.items.isAdded})
+export default connect(mapStateToProps, {addItem, clearErrors, setAdded})(Add);

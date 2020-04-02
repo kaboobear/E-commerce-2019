@@ -13,6 +13,7 @@ class Side extends Component {
         maxPrice:100,
         shipping: '0',
         isPricing: false,
+        isHidden:true,
     }
 
     onChange = (e) => {
@@ -60,12 +61,37 @@ class Side extends Component {
                 $(this).addClass('active');
             }
         });
+
+
+
+        //Dark BG
+        $('.hide-btn').click(function(){
+            if($(this).hasClass('active')){
+                $('.dark-bg').fadeOut(300);
+                $(this).removeClass('active');
+                $('.side-section').removeClass('active');
+            }
+            else{
+                $('.dark-bg').fadeIn(300);
+                $(this).addClass('active');
+                $('.side-section').addClass('active');
+            }
+        })
     }
 
     render() {
         const {isLoading, items} = this.props;
 
         return (
+            <div>
+
+            <div className="dark-bg"></div>
+
+
+            <div className="hide-btn">
+            <img src="img/my-arr-l.svg" alt=""/>
+            </div>
+
             <div className="side-section">
                 <div className="acc">
                     <div className="acc-item">
@@ -210,7 +236,7 @@ class Side extends Component {
 
                     </div>
                 </div>
-
+                            </div>
             </div>
         )
     }

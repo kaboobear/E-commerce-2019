@@ -12,7 +12,7 @@ import {SlectStyle, Options} from '../config/settings'
 class Items extends Component {
     state = {
         sort: 0,
-        regexText: '',
+        regexText: ''
     }
 
     onSelectChange = (val) => {
@@ -79,7 +79,11 @@ class Items extends Component {
                                         ? (
                                             <div>
                                                 <Equalizer className="product-items">
-                                                    {items.map(elem => (<Item key={elem._id} elem={elem}/>))}
+                                                    {items.map(elem => (
+                                                                    <div className="product-item-wrap">
+                                                    <Item key={elem._id} elem={elem}/>
+                                                    </div>
+                                                    ))}
                                                 </Equalizer>
 
                                                 {(pagination.pagesCount > 1) && (
