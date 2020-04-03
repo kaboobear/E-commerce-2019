@@ -5,7 +5,8 @@ export const SlectStyle  = {
             border: "1px solid #ddd !important",
             boxShadow:"none !important",
             borderRadius:"10px",
-            cursor:"pointer !important"
+            cursor:"pointer !important",
+            height:"100%"
         };
     },
     dropdownIndicator: (styles, {data, isDisabled, isFocused, isSelected}) => {

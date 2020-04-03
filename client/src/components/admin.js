@@ -73,7 +73,7 @@ class Admin extends Component {
 
                                 {items.map(elem => (<AdminItem elem={elem} key={elem._id}/>))}
 
-                                <div className="before-pagination">&nbsp;</div>
+                                {/* <div className="before-pagination">&nbsp;</div> */}
 
                                 {(pagination.pagesCount > 1) && (
                                     <div>

@@ -10,7 +10,7 @@ class Cart extends Component {
         const {cart} = this.props;
 
         return (
-            <div className="">
+            <div className="extra-wrap">
                 {(cart.count > 0)
                     ? (
                         <div>

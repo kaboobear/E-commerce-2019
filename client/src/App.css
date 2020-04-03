@@ -428,7 +428,7 @@ textarea:focus::placeholder {
 }
 
 .mobile-nav ul li {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-left: 0 !important;
 }
 
@@ -647,6 +647,10 @@ textarea:focus::placeholder {
     display: none;
   }
 
+  .header-nav.mob a{
+    padding-bottom: 3px;
+  }
+
   .cart-total {
     width: auto;
     margin-right: 5px;
@@ -721,6 +725,7 @@ textarea:focus::placeholder {
 
   .add-section {
     width: 400px;
+    margin-bottom: 0;
   }
 }
 
@@ -735,9 +740,7 @@ textarea:focus::placeholder {
 }
 
 @media(max-width:375px) {
-  .add-section {
-    margin-bottom: 0;
-  }
+
 }
 
 
@@ -1037,8 +1040,8 @@ textarea:focus::placeholder {
 
   .login-section,
   .register-section {
-    justify-content: center;
-    padding-top: 0;
+    /* justify-content: center; */
+    /* padding-top: 0; */
   }
 
   .log-buttons a {
@@ -1564,6 +1567,12 @@ textarea:focus::placeholder {
   }
 }
 
+@media(max-width:900px){
+  .isEmpty {
+    padding-top: 50px;
+  }
+}
+
 @media(max-width:500px) {
   .product-item-wrap {
     width: 100%;
@@ -1580,6 +1589,7 @@ textarea:focus::placeholder {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  min-height: 48px;
 }
 
 .css-2b097c-container {
@@ -3417,6 +3427,12 @@ textarea:focus::placeholder {
   }
 }
 
+@media(max-width:768px){
+  .admin-items {
+    margin-bottom: -8px;
+  }
+}
+
 @media(max-width:725px){
   .admin-items .item-ship{
     display: none;
@@ -3487,7 +3503,19 @@ textarea:focus::placeholder {
 
 
 
+.checkout-section,
+.extra-wrap{
+  flex:1;
+}
 
+@media(max-width:768px){
+  .checkout-section,
+.extra-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+}
 
 .Toastify__toast {
   padding-left: 20px !important;
