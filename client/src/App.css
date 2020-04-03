@@ -1835,7 +1835,7 @@ textarea:focus::placeholder {
   }
 
   .hide-btn.active {
-    top: 52%;
+    top: 50%;
   }
 
   .hide-btn img {
@@ -3552,6 +3552,11 @@ textarea:focus::placeholder {
   height: 3px !important;
 }
 
+@media(max-width:768px){
+  .Toastify__toast {
+    display: none !important;
+  }
+}
 
 
 /* -----------------------------------------------------
