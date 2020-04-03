@@ -2707,7 +2707,7 @@ textarea:focus::placeholder {
   }
 
   .cart-msg-wrap{
-    margin-top: 0;
+    /* margin-top: 0; */
   }
 }
 
@@ -3515,11 +3515,16 @@ textarea:focus::placeholder {
 @media(max-width:768px){
   .checkout-section,
 .extra-wrap{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: center; */
+}
+
+.cart-msg-wrap{
+  align-self: center;
 }
 }
+
 
 .Toastify__toast {
   padding-left: 20px !important;
