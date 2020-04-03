@@ -6,7 +6,7 @@ export const SlectStyle  = {
             boxShadow:"none !important",
             borderRadius:"10px",
             cursor:"pointer !important",
-            paddingLeft:"15px",
+            paddingLeft:"7px",
             minHeight:"48px",
             height:"100%"
         };
