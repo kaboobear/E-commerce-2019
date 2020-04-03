@@ -2448,7 +2448,7 @@ textarea:focus::placeholder {
 
 .slick-list {
   margin: 0 -10px !important;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .slick-dots li.slick-active button:before {
