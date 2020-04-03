@@ -2705,6 +2705,10 @@ textarea:focus::placeholder {
   .cart-title {
     padding-top: 7px;
   }
+
+  .cart-msg-wrap{
+    margin-top: 0;
+  }
 }
 
 @media (max-width:720px) {
