@@ -119,7 +119,7 @@ class Edit extends Component {
             <div className="add-wrap">
 
                     <div>
-                        <div className="abs-block">
+                        <div className="abs-block edit-abs">
                             <NavLink strict to="/admin" className="back-btn btn">
                                 Back
                             </NavLink>

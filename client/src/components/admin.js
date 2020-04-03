@@ -53,14 +53,14 @@ class Admin extends Component {
                 </NavLink>
 
                 <div
-                    className={`items-side${isLoading
+                    className={`items-side admin-items${isLoading
                     ? " loading"
                     : " notLoading"}`}>
 
                     {(items.length !== 0)
                         ? (
                             <div>
-                                <div className="item-titles">
+                                <div className="item-titles admin-titles">
                                     <div className="item-img">Image</div>
                                     <div className="item-title">Title</div>
                                     <div className="item-description">Info</div>

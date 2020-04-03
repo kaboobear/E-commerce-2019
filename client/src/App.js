@@ -41,10 +41,6 @@ class App extends React.Component {
         $(".close").click(function () {
             $(".mobile-nav").toggleClass('active');
         });
-
-        $(".mobile-nav a").click(function(){
-            $(".mobile-nav").toggleClass('active');
-        })
     }
 
     render() {

@@ -20,10 +20,10 @@ class Checkout extends Component {
         isThanks:false,
     }
 
-    componentDidMount() {
-        if (this.props.cart.isCheckout === false) 
-            this.props.history.push('/')
-    }
+    // componentDidMount() {
+    //     if (this.props.cart.isCheckout === false) 
+    //         this.props.history.push('/')
+    // }
 
     componentDidUpdate(prevProps) {
         if (this.props.order.isAdded) {

@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import $  from 'jquery';
 
 class Mobile extends Component {
+    componentDidUpdate(){
+        if(!this.props.isLoading){
+            $(".mobile-nav li").click(function(){
+                $(".mobile-nav").toggleClass('active');
+            })
+        }
+    }
+
     render() {
         const {user} = this.props;
 
@@ -39,6 +48,6 @@ class Mobile extends Component {
 }
 
 
-const mapStateToProps = state => ({user: state.auth.user})
+const mapStateToProps = state => ({user: state.auth.user,isLoading:state.auth.isLoading})
 
 export default connect(mapStateToProps)(Mobile)
