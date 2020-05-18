@@ -19,8 +19,10 @@
 + Clone this repo to your computer
 + "npm install" to install necessary modules
 + "npm run dev" to run front-end and back-end(on port 3000 and 5000)
-+ Or just open the [Link](https://kaboo-shop-test.herokuapp.com)
 
+<hr>
+
+### Project demo [Here](https://kaboo-shop-test.herokuapp.com)
 
 <hr>
 
