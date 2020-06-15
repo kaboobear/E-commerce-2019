@@ -7,15 +7,15 @@ module.exports = function validateRegisterInput(data) {
     data.name = !isEmpty(data.name)
         ? data.name
         : "";
-    data.mail = !isEmpty(data.mail)
-        ? data.mail
-        : "";
+    // data.mail = !isEmpty(data.mail)
+    //     ? data.mail
+    //     : "";
     data.phone = !isEmpty(data.phone)
         ? data.phone
         : "";
-    data.country = !isEmpty(data.country)
-        ? data.country
-        : "";
+    // data.country = !isEmpty(data.country)
+    //     ? data.country
+    //     : "";
     data.city = !isEmpty(data.city)
         ? data.city
         : "";
@@ -24,33 +24,33 @@ module.exports = function validateRegisterInput(data) {
         : "";
 
     if (Validator.isEmpty(data.name)) 
-        errors.name = "Name field is required";
+        errors.name = "Укажите ваше имя";
     else if (!Validator.isLength(data.name, {min: 3})) 
-        errors.name = "Name must be at least 3 characters";
+        errors.name = "Минимальная длинна - 3 символа";
     
-    if (Validator.isEmpty(data.mail)) 
-        errors.mail = "Email field is required";
-    else if (!Validator.isEmail(data.mail)) 
-        errors.mail = "Email is invalid";
+    // if (Validator.isEmpty(data.mail)) 
+    //     errors.mail = "Email field is required";
+    // else if (!Validator.isEmail(data.mail)) 
+    //     errors.mail = "Email is invalid";
     
     if (Validator.isEmpty(data.phone)) 
-        errors.phone = "Phone field is required";
+        errors.phone = "Укажите ваш телефон";
     else if (!Validator.isLength(data.phone, {min: 6})) 
-        errors.phone = "Phone must be at least 6 characters";
+        errors.phone = "Минимальная длинна - 6 символов";
     
-    if (Validator.isEmpty(data.country)) 
-        errors.country = "Country field is required";
-    else if (!Validator.isLength(data.country, {min: 3})) 
-        errors.country = "Country must be at least 3 characters";
+    // if (Validator.isEmpty(data.country)) 
+    //     errors.country = "Country field is required";
+    // else if (!Validator.isLength(data.country, {min: 3})) 
+    //     errors.country = "Country must be at least 3 characters";
     
     if (Validator.isEmpty(data.city)) 
-        errors.city = "City field is required";
+        errors.city = "Укажите ваш город";
     else if (!Validator.isLength(data.city, {min: 3})) 
-        errors.city = "City must be at least 3 characters";
+        errors.city = "Минимальная длинна - 3 символа";
     
     if (Validator.isEmpty(data.address)) 
-        errors.address = "Address field is required";
+        errors.address = "Укажите ваш адрес";
     else if (!Validator.isLength(data.address, {min: 3})) 
-        errors.address = "Address must be at least 3 characters";
+        errors.address = "Минимальная длинна - 3 символа";
     return {errors, isValid: isEmpty(errors)};
 };

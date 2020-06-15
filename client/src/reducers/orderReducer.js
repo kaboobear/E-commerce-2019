@@ -1,8 +1,17 @@
-import {ADD_ORDER, ORDERS_LOADED, SET_ORDERS_LOADING, SET_IS_ADDED,DELETE_ORDER} from '../actions/types'
+import {
+    ADD_ORDER,
+    ORDERS_LOADED,
+    SET_ORDERS_LOADING,
+    SET_IS_ADDED,
+    DELETE_ORDER,
+    ORDER_LOADED,
+    SET_STATUS
+} from '../actions/types'
 
 const initialState = {
     orders: [],
-    isLoading: false,
+    order:null,
+    isLoading: true,
     idAdded: false
 }
 
@@ -18,10 +27,26 @@ export default function (state = initialState, action) {
                 ...state,
                 isLoading: true
             }
-        case DELETE_ORDER:
-            return{
+        case SET_STATUS:
+            return {
                 ...state,
-                orders: state.orders.filter(elem => { return (elem._id !== action.payload)})
+                order: action.payload,
+                orders: state.orders.map(elem => (elem._id === action.payload._id) ? action.payload : elem)
+            }
+        case DELETE_ORDER:
+            return {
+                ...state,
+                orders: state
+                    .orders
+                    .filter(elem => {
+                        return (elem._id !== action.payload)
+                    })
+            }
+        case ORDER_LOADED:
+            return {
+                ...state,
+                isLoading: false,
+                order: action.payload
             }
         case ORDERS_LOADED:
             return {

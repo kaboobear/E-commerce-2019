@@ -6,6 +6,10 @@ const OrderModel = new Schema({
         type:Object,
         required:true
     },
+    author:{
+        type:Schema.Types.ObjectId,
+        ref: 'User'
+    },
     delivery:{
         type:String,
         required:true,
@@ -18,18 +22,18 @@ const OrderModel = new Schema({
         type:String,
         required:true,
     },
-    mail:{
-        type:String,
-        required:true,
-    },
+    // mail:{
+    //     type:String,
+    //     required:true,
+    // },
     phone:{
         type:String,
         required:true,
     },
-    country:{
-        type:String,
-        required:true,
-    },
+    // country:{
+    //     type:String,
+    //     required:true,
+    // },
     city:{
         type:String,
         required:true,
@@ -38,6 +42,11 @@ const OrderModel = new Schema({
         type:String,
         required:true,
     },
+    status:{
+        type:String,
+        required:true,
+        default:'new'
+    }
 },{timestamps:true});
 
 module.exports = mongoose.model("Order",OrderModel);

@@ -27,8 +27,8 @@ router.post("/", (req, res) => {
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        count: req.body.count,
-        isFreeShipping: req.body.isFreeShipping,
+        // count: req.body.count,
+        // isFreeShipping: req.body.isFreeShipping,
         category: req.body.category
     })
 
@@ -70,8 +70,8 @@ router.post("/:id", (req, res) => {
             item.title = req.body.title;
             item.description = req.body.description;
             item.price = req.body.price;
-            item.count = req.body.count;
-            item.isFreeShipping = req.body.isFreeShipping;
+            // item.count = req.body.count;
+            // item.isFreeShipping = req.body.isFreeShipping;
             item.category = req.body.category;
 
             if (req.files !== null) {

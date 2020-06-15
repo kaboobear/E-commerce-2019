@@ -49,15 +49,15 @@ export const SlectStyle  = {
 export const Options = [
     {
         value: '1',
-        label: 'Price Up'
+        label: `Дешевле`
     }, {
         value: '2',
-        label: 'Price Down'
+        label: 'Дороже'
     }, {
         value: '3',
-        label: 'Date Up'
+        label: 'Старые'
     }, {
         value: '4',
-        label: 'Date Down'
+        label: 'Новые'
     }
 ]

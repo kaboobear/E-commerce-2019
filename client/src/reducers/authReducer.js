@@ -1,10 +1,12 @@
-import {USER_LOADING,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS,LOGIN_FAIL,REGISTER_SUCCESS,REGISTER_FAIL,LOGOUT_SUCCESS} from '../actions/types'
+import {COUNT_LOADED,COUNT_LOADING,USER_LOADING,USER_LOADED,AUTH_ERROR,LOGIN_SUCCESS,LOGIN_FAIL,REGISTER_SUCCESS,REGISTER_FAIL,LOGOUT_SUCCESS, CHANGE_MAIL, CHANGE_PASS, SET_DELIVERY} from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
     user:{},
     isAuthenticated:false,
-    isLoading:false,
+    isLoading:true,
+    countLoading:false,
+    counts: {}
 }
 
 export default function(state=initialState,action){
@@ -14,16 +16,34 @@ export default function(state=initialState,action){
                 ...state,
                 isLoading:true
             }
+        case COUNT_LOADING:
+            return {
+                ...state,
+                countLoading:true
+            }
+        case COUNT_LOADED:
+            return {
+                ...state,
+                countLoading:false,
+                counts: action.payload
+            }
+        case CHANGE_PASS:
+        case CHANGE_MAIL: 
+        case SET_DELIVERY:
+            return{
+                ...state,
+                user: action.payload
+            }
         case USER_LOADED:
             return{
                 ...state,
-                isLoading:false,
                 isAuthenticated:true,
+                isLoading:false,
                 user:action.payload
             }
         case LOGIN_SUCCESS:
         case REGISTER_SUCCESS:
-            localStorage.setItem('token',action.payload.token)
+            localStorage.setItem('token',action.payload.token);
             return{
                 ...state,
                 ...action.payload,

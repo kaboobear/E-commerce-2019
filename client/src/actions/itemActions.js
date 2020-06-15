@@ -15,7 +15,8 @@ import axios from 'axios';
 export const getItems = (page, limit, category = 0, from = 0, to = 1000000, ship = 0, sort = 1, regex = '', isPag = true) => dispatch => {
     dispatch(setItemsLoading());
     axios
-        .get(`/item?page=${page}&limit=${limit}&category=${category}&from=${from}&to=${to}&ship=${ship}&sort=${sort}&regex=${regex}`)
+        // .get(`/item?page=${page}&limit=${limit}&category=${category}&from=${from}&to=${to}&ship=${ship}&sort=${sort}&regex=${regex}`)
+        .get(`/item?page=${page}&limit=${limit}&category=${category}&from=${from}&to=${to}&sort=${sort}&regex=${regex}`)
         .then(res => {
             if (isPag) {
                 setTimeout(() => {

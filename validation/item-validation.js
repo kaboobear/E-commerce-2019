@@ -13,25 +13,25 @@ module.exports = function validateRegisterInput(data) {
     data.price = !isEmpty(data.price)
         ? data.price
         : "";
-    data.count = !isEmpty(data.count)
-        ? data.count
-        : "";
+    // data.count = !isEmpty(data.count)
+    //     ? data.count
+    //     : "";
 
     if (Validator.isEmpty(data.title)) 
-        errors.title = "Title field is required";
+        errors.title = "Введите название";
     else if (!Validator.isLength(data.title, {min: 4})) 
-        errors.title = "Title must be at least 4 characters";
+        errors.title = "Минимальная длинна - 4 символа";
     
     if (Validator.isEmpty(data.description)) 
-        errors.description = "Description field is required";
+        errors.description = "Введите описание";
         else if (!Validator.isLength(data.description, {min: 10})) 
-        errors.description = "Description must be at least 10 characters";
+        errors.description = "Минимальная длинна - 10 символов";
     
     if (Validator.isEmpty(data.price)) 
-        errors.price = "Price field is required";
+        errors.price = "Введите цену";
 
-    if (Validator.isEmpty(data.count)) 
-        errors.count = "Count field is required";
+    // if (Validator.isEmpty(data.count)) 
+    //     errors.count = "Count field is required";
     
     return {errors, isValid: isEmpty(errors)};
 };

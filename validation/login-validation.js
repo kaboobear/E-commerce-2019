@@ -12,12 +12,12 @@ module.exports = function validateLogin(data) {
         : "";
 
     if (Validator.isEmpty(data.mail)) 
-        errors.mail = "Email field is required";
+        errors.mail = "Введите вашу почту";
     else if (!Validator.isEmail(data.mail)) 
-        errors.mail = "Email is invalid";
+        errors.mail = "Введена некоректная почта";
     
     if (Validator.isEmpty(data.pass)) 
-        errors.pass = "Password field is required";
+        errors.pass = "Введите ваш пароль";
     
     return {errors, isValid: isEmpty(errors)};
 };

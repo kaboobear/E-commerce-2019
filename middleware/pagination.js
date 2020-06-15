@@ -12,21 +12,22 @@ const pagination = (model) => async(req, res, next) => {
     const category = parseInt(req.query.category);
     const from = parseInt(req.query.from);
     const to = parseInt(req.query.to);
-    const ship = parseInt(req.query.ship);
+    // const ship = parseInt(req.query.ship);
 
     results.filters.push(category);
     results.filters.push(from);
     results.filters.push(to);
-    results.filters.push(ship);
+    results.filters.push(0);
+    // results.filters.push(ship);
 
     const match = {}
 
     if (category !== 0 && category !== 1)
         match.category = category;
-    if (ship !== 0) 
-        match.isFreeShipping = (ship === 1)
-            ? true
-            : false;
+    // if (ship !== 0) 
+    //     match.isFreeShipping = (ship === 1)
+    //         ? true
+    //         : false;
     match.price = {$gt:from,$lt:to}
 
 

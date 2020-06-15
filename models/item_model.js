@@ -14,14 +14,14 @@ const ItemSchema = new Schema({
         type:Number,
         required:true
     },
-    count:{
-        type:Number,
-        required:true
-    },
-    isFreeShipping:{
-        type:Boolean,
-        required:true
-    },
+    // count:{
+    //     type:Number,
+    //     required:true
+    // },
+    // isFreeShipping:{
+    //     type:Boolean,
+    //     required:true
+    // },
     category:{
         type:String,
         required:true
