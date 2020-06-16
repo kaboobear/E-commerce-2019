@@ -81,7 +81,7 @@ class Content extends React.Component {
                 
 
                 <ToastContainer containerId={'one'}/>
-                {/* <Loader background="#24292e" color="#5cdb95" time="1500"/> */}
+                <Loader background="#24292e" color="#5cdb95" time="1500"/>
                 <MobMenu/>
                 <ScrollUpButton ShowAtPosition={60} ContainerClassName="to-top-button"/>
             </div>
