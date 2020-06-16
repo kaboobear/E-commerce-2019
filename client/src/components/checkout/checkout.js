@@ -358,6 +358,7 @@ class Checkout extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                        <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
                                     </div>
 
                                     <div className="check-block-wrap">
@@ -425,9 +426,8 @@ class Checkout extends Component {
                                                 </div>
                                             </div>
                                         </div>
+                                        <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
                                     </div>
-
-                                    {/* <ReactTooltip type="error" effect="solid" place="right" multiline="false"/> */}
                                 </form>
 
                                 <div className="checkout-details cd2">

@@ -15,7 +15,7 @@ class cabinetHistory extends React.Component {
         const {orders, ordersLoading} = this.props;
 
         return (
-            <div>
+            <div className='cabinet-history'>
                 {(!ordersLoading) && (
                     <div>
                         {(orders.length > 0)

@@ -5,11 +5,9 @@ import $  from 'jquery';
 
 class Mobile extends Component {
     componentDidUpdate(){
-        if(!this.props.isLoading){
             $(".mobile-nav li").click(function(){
                 $(".mobile-nav").toggleClass('active');
             })
-        }
     }
 
     render() {
@@ -24,22 +22,17 @@ class Mobile extends Component {
                 <ul>
                     <ul className="header-nav mob">
                         <li>
-                            <NavLink exact className="nav-item" to="/">Home</NavLink>
+                            <NavLink exact className="nav-item" to="/"><img src="/img/house.png" alt=""/> Домой</NavLink>
                         </li>
                         <li>
-                            <NavLink exact className="nav-item" to="/about">About</NavLink>
+                            <NavLink exact className="nav-item" to="/about"><img src="/img/about.png" alt=""/> О нас</NavLink>
                         </li>
                         <li>
-                            <NavLink exact className="nav-item" to="/faq">FAQ</NavLink>
+                            <NavLink exact className="nav-item" to="/faq"><img src="/img/faq.png" alt=""/> FAQ</NavLink>
                         </li>
                         <li>
-                            <NavLink exact className="nav-item" to="/contacts">Contacts</NavLink>
+                            <NavLink exact className="nav-item" to="/contacts"><img src="/img/phone.png" alt=""/> Контакты</NavLink>
                         </li>
-                        {(user.isAdmin) && (
-                            <li>
-                                <NavLink className="nav-item" to="/admin">Panel</NavLink>
-                            </li>
-                        )}
                     </ul>
                 </ul>
             </div>

@@ -33,24 +33,21 @@ class Admin extends Component {
                                     <div className="admin-section">
                                         <ul className="admin-sidebar">
                                             <li>
-                                                <div className="admin-head">
+                                                <div className="admin-head main-head">
                                                     <img src="/img/cog.png" alt=""/>
                                                     Admin Panel</div>
                                             </li>
                                             <li>
-                                                <NavLink exact to="/admin"><img src="/img/house.png" alt=""/>
-                                                    Домой</NavLink>
+                                                <NavLink exact to="/admin"><img src="/img/house.png" alt=""/> <span className="admin-side-text">Домой</span></NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to="/admin/products"><img src="/img/box.png" alt=""/>
-                                                    Продукты</NavLink>
+                                                <NavLink to="/admin/products"><img src="/img/box.png" alt=""/> <span className="admin-side-text">Продукты</span></NavLink>
                                             </li>
                                             <li>
-                                                <NavLink exact to="/admin/orders"><img src="/img/truck.png" alt=""/>Заказы</NavLink>
+                                                <NavLink exact to="/admin/orders"><img src="/img/truck.png" alt=""/> <span className="admin-side-text">Заказы</span></NavLink>
                                             </li>
                                             <li>
-                                                <div onClick={()=>{this.props.logout();}}><img src="/img/door.png" alt=""/>
-                                                    Выход</div>
+                                                <div onClick={()=>{this.props.logout();}}><img src="/img/door.png" alt=""/> <span className="admin-side-text">Выход</span></div>
                                             </li>
                                         </ul>
 

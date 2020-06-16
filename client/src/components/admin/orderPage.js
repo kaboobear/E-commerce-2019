@@ -16,12 +16,12 @@ class orderPage extends React.Component {
 
         return (
             <div>
-                <div className="admin-wrap-title">
+                <div className="admin-wrap-title orders-title">
                     <NavLink strict to="/admin/orders" className="control-btn2">
                         <img src="/img/my-arr-l.svg" alt=""/>
                     </NavLink>
 
-                    Детали заказа
+                    <div className="order-page-title">Детали заказа</div> 
                 </div>
 
                 {(!this.props.isLoading && this.props.order !== null) && (

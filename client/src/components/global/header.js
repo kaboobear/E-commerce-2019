@@ -4,6 +4,7 @@ import {logout} from '../../actions/authActions';
 import {connect} from 'react-redux';
 import Dropdown from './dropdown';
 import SideMenu from './sideMenu';
+import $  from 'jquery';
 
 class Header extends Component {
     state = {
@@ -17,6 +18,14 @@ class Header extends Component {
                 this.setState({
                     isScrolled: winScroll > 60
                 });
+            });
+
+            $(".ham").click(function () {
+                $(".mobile-nav").toggleClass('active');
+            });
+    
+            $(".close").click(function () {
+                $(".mobile-nav").toggleClass('active');
             });
     }
 
