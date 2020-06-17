@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent as Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {getItems} from '../../actions/itemActions'
 import {NavLink, Route} from 'react-router-dom';

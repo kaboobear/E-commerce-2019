@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent as Component} from 'react';
 // import {NavLink} from 'react-router-dom';
 
 import "slick-carousel/slick/slick.css";

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent as Component} from 'react';
 import {NavLink,withRouter} from 'react-router-dom';
 import {logout} from '../../actions/authActions';
 import {connect} from 'react-redux';
@@ -88,21 +88,21 @@ class Header extends Component {
 
                         {(isLoading === false) && (!this.props.isAuth)
                             ? (
-                                <span>
+                                <>
                                     <li>
                                         <NavLink exact className="btn simple user-btn" to="/login">
                                             <div className="user-btn-img"></div>
                                             <span className="log-text">Войти</span>
                                         </NavLink>
                                     </li>
-                                </span>
+                                </>
                             )
                             : (
-                                <span>
+                                <>
                                     <li className="dropdown-wrap">
                                         <Dropdown logout = {()=>{this.props.logout();this.props.history.push('/login');}} username={username}/>
                                     </li>
-                                </span>
+                                </>
                             )}
 
                         <li className="ham">

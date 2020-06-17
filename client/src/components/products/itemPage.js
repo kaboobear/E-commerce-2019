@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent as Component} from 'react';
 import {connect} from 'react-redux';
 import {getItem, getItems} from '../../actions/itemActions'
 import {addToCart} from '../../actions/cartActions'

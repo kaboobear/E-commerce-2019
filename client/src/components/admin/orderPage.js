@@ -4,7 +4,7 @@ import {getOrderById, changeStatus} from '../../actions/orderActions';
 import {NavLink} from 'react-router-dom';
 import 'moment/locale/ru';
 
-class orderPage extends React.Component {
+class orderPage extends React.PureComponent {
     componentDidMount() {
         this
             .props

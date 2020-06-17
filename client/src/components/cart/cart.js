@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent as Component} from 'react';
 import {NavLink, withRouter} from 'react-router-dom';
 import {addToCart,setCheckout} from '../../actions/cartActions'
 import {connect} from 'react-redux';

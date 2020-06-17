@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent as Component} from 'react';
 // import {NavLink} from 'react-router-dom';
 import $ from 'jquery'
 import Accordion from "./faq-acc";

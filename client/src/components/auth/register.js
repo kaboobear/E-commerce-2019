@@ -5,7 +5,7 @@ import {clearErrors} from '../../actions/errorActions';
 import {connect} from 'react-redux';
 import ReactTooltip from "react-tooltip";
 
-class Register extends React.Component {
+class Register extends React.PureComponent {
     state = {
         login: '',
         mail: '',

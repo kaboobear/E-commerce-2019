@@ -3,13 +3,11 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const Item = require('../models/item_model');
-// const auth = require('../middleware/auth');
 const pagination = require('../middleware/pagination');
 const validateItem = require("../validation/item-validation");
 const imgPath = (process.env.NODE_ENV === 'production') ? 'build' : 'public';
 
 router.get("/", pagination(Item), (req, res) => {
-    console.log(imgPath)
     res.json(req.results);
 })
 
@@ -38,7 +36,7 @@ router.post("/", (req, res) => {
         const file = req.files.file;
         const extName = path.extname(file.name);
         const fullName = newItem._id + extName;
-        file.mv(`${__dirname}/../client/build/img/uploads/${fullName}`, err => {
+        file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
             if (err) 
                 console.log(err);
             else {
@@ -82,7 +80,7 @@ router.post("/:id", (req, res) => {
                 const fullName =item._id + extName;
 
                 if (item.imgName === "default.png") {
-                    file.mv(`${__dirname}/../client/build/img/uploads/${fullName}`, err => {
+                    file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
                         if (err) 
                             console.log(err);
                         
@@ -95,11 +93,11 @@ router.post("/:id", (req, res) => {
                             });
                     })
                 } else {
-                    fs.unlink(`${__dirname}/../client/build/img/uploads/${item.imgName}`, (err) => {
+                    fs.unlink(`${__dirname}/../client/${imgPath}/img/uploads/${item.imgName}`, (err) => {
                         if (err) 
                             return console.log(err)
 
-                        file.mv(`${__dirname}/../client/build/img/uploads/${fullName}`, err => {
+                        file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
                             if (err) 
                                 console.log(err);
                             
@@ -126,7 +124,7 @@ router.delete("/:id", (req, res) => {
         .findById(req.params.id)
         .then(item => item.remove().then(() => {
             if (item.imgName !== 'default.png') {
-                fs.unlink(`${__dirname}/../client/build/img/uploads/${item.imgName}`, (err) => {
+                fs.unlink(`${__dirname}/../client/${imgPath}/img/uploads/${item.imgName}`, (err) => {
                     if (err) 
                         return console.log(err)
                     res.json(item)

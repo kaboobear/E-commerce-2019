@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import {Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel} from 'react-accessible-accordion';
 import {getOrdersByUser} from '../../actions/orderActions';
 
-class cabinetHistory extends React.Component {
+class cabinetHistory extends React.PureComponent {
     componentDidMount(){
         this
         .props

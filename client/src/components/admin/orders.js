@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent as Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {loadOrders} from '../../actions/orderActions';
 import {withRouter} from 'react-router-dom';

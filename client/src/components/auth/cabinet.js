@@ -6,7 +6,7 @@ import CabinetDelivery from './cabinetDelivery';
 import CabinetHistory from './cabinetHistory';
 import {connect} from "react-redux";
 
-class cabinet extends React.Component {
+class cabinet extends React.PureComponent {
     componentDidMount(){
         if (this.props.isAuth === false) {
                  this

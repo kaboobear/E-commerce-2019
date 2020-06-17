@@ -5,7 +5,7 @@ import {clearErrors} from '../../actions/errorActions'
 import {connect} from 'react-redux'
 import ReactTooltip from "react-tooltip";
 
-class AdminLogin extends React.Component {
+class AdminLogin extends React.PureComponent {
     state = {
         mail: '',
         pass: '',

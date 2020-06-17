@@ -5,7 +5,7 @@ import {clearErrors} from '../../actions/errorActions';
 import ReactTooltip from "react-tooltip";
 
 
-class cabinetUser extends React.Component {
+class cabinetUser extends React.PureComponent {
     state = {
         mail: '',
         oldPass: '',

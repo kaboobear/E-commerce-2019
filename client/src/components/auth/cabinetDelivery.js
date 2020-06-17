@@ -4,7 +4,7 @@ import {setDelivery} from '../../actions/authActions';
 import {clearErrors} from '../../actions/errorActions';
 import ReactTooltip from "react-tooltip";
 
-class cabinetDelivery extends React.Component {
+class cabinetDelivery extends React.PureComponent {
     state = {
         name: '',
         phone: '',
