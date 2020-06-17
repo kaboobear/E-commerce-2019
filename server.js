@@ -8,6 +8,7 @@ const item_route = require("./routes/item_route");
 const user_route = require("./routes/user_route");
 const order_route = require("./routes/order_route");
 const comment_route = require("./routes/comment_route");
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors());
+app.use(compression());
 
 mongoose
     .connect(db,{ useNewUrlParser: true,useUnifiedTopology: true,useCreateIndex:true })
