@@ -5,10 +5,11 @@ const fs = require('fs');
 const Item = require('../models/item_model');
 // const auth = require('../middleware/auth');
 const pagination = require('../middleware/pagination');
-
 const validateItem = require("../validation/item-validation");
+const imgPath = (process.env.NODE_ENV === 'production') ? 'build' : 'public';
 
 router.get("/", pagination(Item), (req, res) => {
+    console.log(imgPath)
     res.json(req.results);
 })
 
@@ -19,6 +20,7 @@ router.get("/:id", (req, res) => {
 })
 
 router.post("/", (req, res) => {
+
     const {errors, isValid} = validateItem(req.body);
     if (!isValid) 
         return res.status(400).json(errors);
