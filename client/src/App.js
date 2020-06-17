@@ -9,7 +9,7 @@ import {setCart} from './actions/cartActions';
 import Content from './Content';
 
 
-class App extends React.Component {
+class App extends React.PureComponent {
     componentDidMount() {
         store.dispatch(loadUser())
         if (JSON.parse(localStorage.getItem('items'))) {

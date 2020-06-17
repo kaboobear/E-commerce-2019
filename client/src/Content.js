@@ -21,7 +21,7 @@ import Contacts from './components/infoPages/contacts';
 import MobMenu from './components/global/mobileMenu';
 import Cabinet from './components//auth/cabinet';
 
-class Content extends React.Component {
+class Content extends React.PureComponent {
     state = {
         isAdminPage:false
     }
