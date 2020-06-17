@@ -41,11 +41,9 @@ export const getOrdersByUser = (id) => (dispatch) => {
 export const addOrder = (order) => (dispatch) => {
     axios.post('/order',order)
         .then(res => {
-            console.log(res);
             dispatch({type:ADD_ORDER,payload:res.data})
         })
         .catch(err => {
-            console.log(err);
             dispatch(returnErrors(err.response.data,err.response.status,'ORDER_ERROR'))
         })
 }

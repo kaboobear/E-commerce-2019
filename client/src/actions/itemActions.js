@@ -27,7 +27,7 @@ export const getItems = (page, limit, category = 0, from = 0, to = 1000000, ship
             }
         })
         .catch(err => {
-            console.log(err)
+            // console.log(err)
         })
 }
 
