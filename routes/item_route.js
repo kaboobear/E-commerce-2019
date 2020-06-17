@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
         const extName = path.extname(file.name);
         const fullName = newItem._id + extName;
         file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
-            if (err) 
+            if (err) {}
                 // console.log(err);
             else {
                 newItem.imgName = fullName;
@@ -81,7 +81,7 @@ router.post("/:id", (req, res) => {
 
                 if (item.imgName === "default.png") {
                     file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
-                        if (err) 
+                        // if (err) 
                             // console.log(err);
                         
                         item.imgName = fullName;
@@ -94,11 +94,11 @@ router.post("/:id", (req, res) => {
                     })
                 } else {
                     fs.unlink(`${__dirname}/../client/${imgPath}/img/uploads/${item.imgName}`, (err) => {
-                        if (err) 
+                        // if (err) 
                             // return console.log(err)
 
                         file.mv(`${__dirname}/../client/${imgPath}/img/uploads/${fullName}`, err => {
-                            if (err) 
+                            // if (err) 
                                 // console.log(err);
                             
                             item.imgName = fullName;
@@ -125,8 +125,8 @@ router.delete("/:id", (req, res) => {
         .then(item => item.remove().then(() => {
             if (item.imgName !== 'default.png') {
                 fs.unlink(`${__dirname}/../client/${imgPath}/img/uploads/${item.imgName}`, (err) => {
-                    if (err) 
-                        // return console.log(err)
+                    // if (err) 
+                    //     return console.log(err)
                     res.json(item)
                 })
             } else {
