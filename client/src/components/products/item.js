@@ -25,11 +25,12 @@ class Item extends Component {
                         : ""}`}>
 
                         <div className="more-btn">
-                            <img src="/img/eye.png" alt=""/>
+                            <img src="/img/eye.png" alt="Кнопка - детали"/>
                         </div>
 
                         <img
                             className="img-elem"
+                            alt="Изображение продукта"
                             src={`/img/${ (this.props.elem.imgName !== "default.png")
                             ? "uploads/"
                             : ""}${this.props.elem.imgName}`}
