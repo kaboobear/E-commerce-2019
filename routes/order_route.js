@@ -26,7 +26,6 @@ router.post("/status", (req, res) => {
 router.post("/", (req, res) => {
     const {errors, isValid} = validateOrder(req.body);
     if (!isValid) {
-        console.log("x");
         return res.status(400).json(errors);
     }
     
@@ -46,7 +45,7 @@ router.post("/", (req, res) => {
     newOrder
         .save()
         .then(order => res.json(order))
-        .catch(err => console.log(err));
+        // .catch(err => console.log(err));
 })
 
 router.delete("/:id",(req,res)=>{

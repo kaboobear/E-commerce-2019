@@ -85,7 +85,7 @@ router.post("/register", (req, res) => {
                                     res.json({user:createdUser, token});
                                 });
                             })
-                            .catch(err => console.log(err));
+                            // .catch(err => console.log(err));
                     });
                 });
             }
@@ -204,7 +204,6 @@ router.post("/editPass", (req, res) => {
 
 router.post("/setDelivery", (req, res) => {
     const {errors, isValid} = validateOrder(req.body);
-    console.log(errors);
     const data = req.body;
 
     if (!isValid) 
