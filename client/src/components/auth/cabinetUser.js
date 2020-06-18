@@ -107,7 +107,7 @@ class cabinetUser extends React.PureComponent {
                         </div>
                     </div>
                     <button type="submit" className="btn">Cохранить</button>
-                    <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                    <ReactTooltip type="error" effect="solid" place="right"/>
                 </form>
 
                 <form
@@ -186,7 +186,7 @@ class cabinetUser extends React.PureComponent {
                     </div>
 
                     <button type="submit" className="btn">Cохранить</button>
-                    <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                    <ReactTooltip type="error" effect="solid" place="right"/>
                 </form>
 
             </div>

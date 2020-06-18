@@ -316,7 +316,7 @@ class Add extends Component {
                     </div>
                 )}
 
-                <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                <ReactTooltip type="error" effect="solid" place="right"/>
             </div>
         )
     }

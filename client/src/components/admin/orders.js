@@ -32,12 +32,13 @@ class Orders extends Component {
                     (elem.status === 'new') && this.setState({type1: true});
                     (elem.status === 'processing') && this.setState({type2: true});
                     (elem.status === 'finished') && this.setState({type3: true});
+                    return 'x';
                 })
         }
     }
 
     render() {
-        let {isLoading, orders, user} = this.props;
+        let {isLoading, orders} = this.props;
 
         return (
             <div>

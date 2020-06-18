@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.min.css';
-import {Route, Redirect} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import ScrollUpButton from "react-scroll-up-button";
 import {connect} from "react-redux";
 import {ToastContainer} from 'react-toastify';
@@ -39,7 +39,7 @@ class Content extends React.PureComponent {
         return (
             <div className="wrapper">
                 {(!isLoading) && (
-                    <div class="loaded-area">
+                    <div className="loaded-area">
                         {/* Admin Pages */}
                         <Route path='/admin' component={Admin}/>
 
@@ -81,7 +81,7 @@ class Content extends React.PureComponent {
                 
 
                 <ToastContainer containerId={'one'}/>
-                <Loader background="#24292e" color="#5cdb95" time="1500"/>
+                <Loader background="#24292e" color="#5cdb95" time={1500}/>
                 <MobMenu/>
                 <ScrollUpButton ShowAtPosition={60} ContainerClassName="to-top-button"/>
             </div>

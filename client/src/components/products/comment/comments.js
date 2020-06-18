@@ -7,7 +7,7 @@ import CommentsItem from './commentItem';
 class Comments extends Component {
 
     render() {
-        const {comments, commentsLoading} = this.props;
+        const {comments} = this.props;
 
         return (
             <div className="comments-section">

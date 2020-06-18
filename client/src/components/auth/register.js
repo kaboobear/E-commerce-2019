@@ -143,7 +143,7 @@ class Register extends React.PureComponent {
                 </div>
 
 
-                <ReactTooltip type="error" effect="solid" place="right"  multiline="false"/>
+                <ReactTooltip type="error" effect="solid" place="right"/>
             </div>
         );
     }

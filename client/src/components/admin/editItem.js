@@ -297,7 +297,7 @@ class Edit extends Component {
 
                                 <button className="btn" type="submit">Сохранить</button>
 
-                                <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                                <ReactTooltip type="error" effect="solid" place="right"/>
                             </form>
                         </div>
                     )}

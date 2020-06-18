@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter, NavLink} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {login} from '../../actions/authActions'
 import {clearErrors} from '../../actions/errorActions'
 import {connect} from 'react-redux'
@@ -117,7 +117,7 @@ class AdminLogin extends React.PureComponent {
                     </form>
                 </div>
 
-                <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                <ReactTooltip type="error" effect="solid" place="right"/>
             </div>
         );
     }

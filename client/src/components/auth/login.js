@@ -127,7 +127,7 @@ class Login extends React.PureComponent {
                     </form>
                 </div>
 
-                <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                <ReactTooltip type="error" effect="solid" place="right"/>
             </div>
         );
     }

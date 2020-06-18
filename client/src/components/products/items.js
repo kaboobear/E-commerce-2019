@@ -100,7 +100,7 @@ class Items extends Component {
 
                             {(!isLoading) && (
 
-                                <div class="products-side-inner">
+                                <div className="products-side-inner">
                                     {items.length > 0
                                         ? (
                                             <div>

@@ -53,6 +53,7 @@ class OneItem extends Component {
                         }, () => {
                             this.props.getComments(this.state.item._id);
                         })
+                    return 'x';
                 })
         }
     }
@@ -82,7 +83,7 @@ class OneItem extends Component {
                                         <img
                                             src={`/img/${ (this.state.item.imgName !== "default.png")
                                             ? ("uploads/" + this.state.item.imgName)
-                                            : "default.png"}`}/>
+                                            : "default.png"}`} alt="Продукт"/>
                                     </div>
 
                                     <div className="one-item-info">

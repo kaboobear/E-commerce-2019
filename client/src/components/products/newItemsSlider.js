@@ -82,6 +82,7 @@ export default function newItemsSlider(props) {
                                 </div>
                             )
                         }
+                        else return <></>
                     })
 }
             </Slider>

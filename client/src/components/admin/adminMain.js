@@ -1,4 +1,4 @@
-import React, {PureComponent as Component, Fragment} from 'react';
+import React, {PureComponent as Component} from 'react';
 import {connect} from 'react-redux';
 import {calcCounts} from '../../actions/authActions';
 import {withRouter} from 'react-router-dom';

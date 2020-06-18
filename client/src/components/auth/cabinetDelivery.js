@@ -76,7 +76,7 @@ class cabinetDelivery extends React.PureComponent {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} className="delivery-form" autocomplete="off">
+            <form onSubmit={this.onSubmit} className="delivery-form" autoComplete="off">
                 <div className="check-block-wrap">
                     <div className="check-block">
                         <div className="check-block-img">
@@ -128,7 +128,7 @@ class cabinetDelivery extends React.PureComponent {
                         </div>
                     </div>
 
-                    <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                    <ReactTooltip type="error" effect="solid" place="right"/>
                 </div>
 
                 <div className="check-block-wrap">

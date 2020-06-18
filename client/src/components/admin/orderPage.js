@@ -18,7 +18,7 @@ class orderPage extends React.PureComponent {
             <div>
                 <div className="admin-wrap-title orders-title">
                     <NavLink strict to="/admin/orders" className="control-btn2">
-                        <img src="/img/my-arr-l.svg" alt=""/>
+                        <img src="/img/my-arr-l.svg" alt="Детали заказа"/>
                     </NavLink>
 
                     <div className="order-page-title">Детали заказа</div> 
@@ -59,7 +59,7 @@ class orderPage extends React.PureComponent {
 
                                 <div className="location-col">
                                     <div className="order-col-title">
-                                        <img src="/img/loc.png" alt=""/>
+                                        <img src="/img/loc.png" alt="Локация"/>
                                         <span>Локация</span>
                                     </div>
 
@@ -88,7 +88,7 @@ class orderPage extends React.PureComponent {
 
                                 <div className="delivery-col">
                                     <div className="order-col-title">
-                                        <img src="/img/truck.png" alt=""/>
+                                        <img src="/img/truck.png" alt="Доставка"/>
                                         <span>Доставка</span>
                                     </div>
 
@@ -109,7 +109,7 @@ class orderPage extends React.PureComponent {
 
                                 <div className="payment-col">
                                     <div className="order-col-title">
-                                        <img src="/img/wallet.png" alt=""/>
+                                        <img src="/img/wallet.png" alt="Оплата"/>
                                         <span>Оплата</span>
                                     </div>
 
@@ -172,7 +172,7 @@ class orderPage extends React.PureComponent {
                                             }}
                                                 className="next-btn">
                                                 В работе
-                                                <img src="/img/my-arr-l.svg"/>
+                                                <img src="/img/my-arr-l.svg" alt="В работе"/>
                                             </div>
                                         )
                                         : (order.status === 'processing')
@@ -185,7 +185,7 @@ class orderPage extends React.PureComponent {
                                                             .changeStatus(order._id, 'new')
                                                     }}
                                                         className="prev-btn">
-                                                        <img src="/img/my-arr-l.svg"/>
+                                                        <img src="/img/my-arr-l.svg" alt="Новый"/>
                                                         Новый
                                                     </div>
 
@@ -197,7 +197,7 @@ class orderPage extends React.PureComponent {
                                                     }}
                                                         className="next-btn">
                                                         Закрыт
-                                                        <img src="/img/my-arr-l.svg"/>
+                                                        <img src="/img/my-arr-l.svg" alt="Закрыт"/>
                                                     </div>
                                                 </Fragment>
                                             )
@@ -209,7 +209,7 @@ class orderPage extends React.PureComponent {
                                                         .changeStatus(order._id, 'processing')
                                                 }}
                                                     className="prev-btn">
-                                                    <img src="/img/my-arr-l.svg"/>
+                                                    <img src="/img/my-arr-l.svg" alt="В работе"/>
                                                     В работе
                                                 </div>
                                             )}

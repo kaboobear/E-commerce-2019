@@ -109,7 +109,7 @@ class Checkout extends Component {
                             </div>
 
                             <div className="checkout-wrap">
-                                <form className="checkout-form" autocomplete="off">
+                                <form className="checkout-form" autoComplete="off">
                                     <div className="check-block-wrap">
                                         <div className="check-block">
                                             <div className="check-block-img">
@@ -358,7 +358,7 @@ class Checkout extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                                        <ReactTooltip type="error" effect="solid" place="right"/>
                                     </div>
 
                                     <div className="check-block-wrap">
@@ -426,7 +426,7 @@ class Checkout extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <ReactTooltip type="error" effect="solid" place="right" multiline="false"/>
+                                        <ReactTooltip type="error" effect="solid" place="right"/>
                                     </div>
                                 </form>
 

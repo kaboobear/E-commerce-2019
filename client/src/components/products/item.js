@@ -34,7 +34,7 @@ class Item extends Component {
                             src={`/img/${ (this.props.elem.imgName !== "default.png")
                             ? "uploads/"
                             : ""}${this.props.elem.imgName}`}
-                            alt=""/>
+                            />
                     </NavLink>
 
                     <div className="product-item-info">
@@ -47,7 +47,7 @@ class Item extends Component {
                             <span className="dollar">грн</span>
                         </div>
 
-                        <div onClick={!this.props.inCart() && this.addToCart} className="cart-add-btn">
+                        <div onClick={()=>{!this.props.inCart() && this.addToCart()}} className="cart-add-btn">
                             <img className="cart-add-img" src="/img/cart.png" alt=""/>
                         </div>
 
