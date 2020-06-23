@@ -22,7 +22,7 @@
 
 <hr>
 
-### Project demo [Here](https://kaboo-shop-test.herokuapp.com)
+### Project demo [Here](https://sticky-shop.web.app/)
 
 <hr>
 
