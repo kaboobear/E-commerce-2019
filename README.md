@@ -74,7 +74,7 @@
 </div>
 
 <div>
-    <p><b>GitHub:</b> https://github.com/kaboobear</p>
+    <p><b>GitHub:</b> https://kaboo-shop-test.herokuapp.com/</p>
 </div>
 
 
