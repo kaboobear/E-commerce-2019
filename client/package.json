@@ -25,6 +25,10 @@
     "react-timeago": "^4.4.0",
     "react-toastify": "^5.5.0",
     "react-tooltip": "^4.2.6",
+    "react-redux": "^7.2.0",
+    "react-select": "^3.1.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
@@ -48,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:4002"
 }

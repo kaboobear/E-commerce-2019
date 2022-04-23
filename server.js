@@ -11,7 +11,7 @@ const comment_route = require('./routes/comment_route');
 const compression = require('compression');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4002;
 
 app.use(express.json());
 app.use(fileUpload());
